@@ -1,304 +1,946 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бурение скважин на воду | Вода в Дом | Сланцы, Кингисепп, Гдов</title>
-    <meta name="description" content="Бурение скважин на воду в Ленинградской и Псковской областях. Сланцы, Кингисепп, Гдов. Установка УРБ 2А2 на базе ЗИЛ. Цена от 5000 руб/метр.">
-    <style>
-        :root {
-            --bg-dark: #071525;
-            --bg-card: #0e2238;
-            --gold: #d8b46a;
-            --gold-hover: #f2d18b;
-            --text: #ffffff;
-            --text-muted: #a0b4c8;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg-dark); color: var(--text); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Header */
-        header { background: rgba(7, 21, 37, 0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #1a324a; padding: 15px 0; }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
-        .logo { font-size: 24px; font-weight: 800; color: var(--gold); }
-        nav { display: flex; gap: 20px; }
-        nav a { color: var(--text-muted); transition: 0.3s; font-size: 15px; }
-        nav a:hover { color: var(--gold); }
-        .header-phone { color: var(--gold); font-weight: bold; font-size: 18px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        /* Hero */
-        .hero { min-height: 80vh; display: flex; align-items: center; background: linear-gradient(rgba(7, 21, 37, 0.8), rgba(7, 21, 37, 0.9)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80') center/cover; padding: 100px 0; }
-        .hero h1 { font-size: clamp(32px, 5vw, 56px); margin-bottom: 20px; line-height: 1.2; }
-        .gold { color: var(--gold); }
-        .hero p { font-size: 20px; color: var(--text-muted); margin-bottom: 30px; max-width: 600px; }
-        .btn { display: inline-block; background: var(--gold); color: var(--bg-dark); padding: 15px 30px; border-radius: 8px; font-weight: bold; font-size: 16px; transition: 0.3s; border: none; cursor: pointer; }
-        .btn:hover { background: var(--gold-hover); transform: translateY(-2px); }
-        .btn-outline { background: transparent; border: 2px solid var(--gold); color: var(--gold); margin-left: 15px; }
-        .btn-outline:hover { background: var(--gold); color: var(--bg-dark); }
+<title>Бурение скважин на воду | Вода в Дом | Сланцы, Кингисепп, Гдов</title>
 
-        /* Sections */
-        section { padding: 80px 0; }
-        .section-title { text-align: center; font-size: 36px; margin-bottom: 50px; }
-        
-        /* Cards */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid #1a324a; transition: 0.3s; }
-        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .card h3 { color: var(--gold); margin-bottom: 15px; font-size: 22px; }
-        .card p { color: var(--text-muted); }
+<meta name="description" content="Бурение скважин на воду в Сланцах, Кингисеппе, Гдове и районах. Буровая установка УРБ 2А2 на базе ЗИЛ. Стоимость от 5000 рублей за метр. Телефон +7 921 321-25-30.">
 
-        /* Equipment */
-        .equipment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .equipment-img { width: 100%; border-radius: 12px; border: 1px solid #1a324a; }
+<meta name="theme-color" content="#071525">
 
-        /* Calculator & Form */
-        .form-box { background: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid #1a324a; max-width: 600px; margin: 0 auto; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; color: var(--text-muted); }
-        input, select, textarea { width: 100%; padding: 15px; background: #071525; border: 1px solid #1a324a; border-radius: 8px; color: white; font-size: 16px; }
-        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold); }
-        .result-box { margin-top: 20px; padding: 15px; background: rgba(216, 180, 106, 0.1); border: 1px solid var(--gold); border-radius: 8px; color: var(--gold); text-align: center; font-size: 20px; font-weight: bold; display: none; }
+<style>
 
-        /* Map */
-        .map-container { border-radius: 12px; overflow: hidden; border: 1px solid #1a324a; margin-top: 40px; }
-        iframe { width: 100%; height: 400px; border: 0; }
+:root {
+    --dark: #071525;
+    --dark2: #0c2035;
+    --card: #132b45;
+    --gold: #d9b56d;
+    --gold-light: #f2d18b;
+    --white: #ffffff;
+    --gray: #b5c5d5;
+}
 
-        /* Messengers */
-        .messengers { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
-        .msg-btn { padding: 12px 20px; border-radius: 8px; font-weight: bold; color: white; transition: 0.3s; }
-        .msg-btn:hover { opacity: 0.8; }
-        .wa { background: #25D366; }
-        .tg { background: #0088cc; }
-        .max { background: #7658e8; opacity: 0.5; cursor: not-allowed; }
-        .email-btn { background: #ea4335; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* Footer */
-        footer { background: #040c16; padding: 40px 0; text-align: center; color: var(--text-muted); border-top: 1px solid #1a324a; }
+html {
+    scroll-behavior: smooth;
+}
 
-        /* Floating button */
-        .float-btn { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 99; transition: 0.3s; }
-        .float-btn:hover { transform: scale(1.1); }
+body {
+    font-family: Arial, sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    line-height: 1.6;
+}
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav { display: none; }
-            .equipment-grid { grid-template-columns: 1fr; }
-            .hero { min-height: 60vh; padding: 60px 0; }
-            .btn-outline { margin-left: 0; margin-top: 15px; }
-        }
-    </style>
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+/* ШАПКА */
+
+header {
+    background: rgba(5, 17, 30, 0.96);
+    border-bottom: 1px solid #294059;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    min-height: 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    color: var(--gold);
+    font-size: 27px;
+    font-weight: 800;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.phone {
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* ГЛАВНАЯ */
+
+.hero {
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle at 75% 45%, #173c5d, transparent 55%),
+        var(--dark);
+    overflow: hidden;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: center;
+    gap: 30px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 5vw, 62px);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.gold {
+    color: var(--gold);
+}
+
+.hero p {
+    font-size: 19px;
+    color: var(--gray);
+    margin-bottom: 25px;
+}
+
+.hero-price {
+    font-size: 34px;
+    font-weight: bold;
+    color: var(--gold);
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    width: 100%;
+    border-radius: 20px;
+    filter: drop-shadow(0 25px 35px #0008);
+    animation: appear 1.2s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* КНОПКИ */
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark);
+    padding: 16px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: var(--dark);
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* РАЗДЕЛЫ */
+
+section {
+    padding: 90px 0;
+}
+
+.section-dark {
+    background: var(--dark2);
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(30px, 4vw, 42px);
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--gray);
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    padding: 35px;
+    border-radius: 15px;
+    background: var(--card);
+    border: 1px solid #29435f;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+}
+
+.card-icon {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: var(--gold);
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: var(--gray);
+}
+
+/* ТЕХНИКА */
+
+.equipment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.equipment-grid img {
+    width: 100%;
+    border-radius: 15px;
+    background: #ffffff;
+}
+
+.equipment-grid h2 {
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.equipment-grid p {
+    color: var(--gray);
+    margin-bottom: 18px;
+}
+
+/* ЦЕНЫ */
+
+.price-section {
+    text-align: center;
+}
+
+.price-big {
+    font-size: clamp(42px, 6vw, 70px);
+    font-weight: bold;
+    color: var(--gold);
+    margin: 25px 0;
+}
+
+/* КАЛЬКУЛЯТОР */
+
+.calculator {
+    max-width: 650px;
+    margin: auto;
+    padding: 35px;
+    background: var(--card);
+    border: 1px solid #29435f;
+    border-radius: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #54708b;
+    font-size: 17px;
+    margin-bottom: 20px;
+    background: white;
+    color: #071525;
+}
+
+.result {
+    color: var(--gold);
+    font-size: 24px;
+    margin-top: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* КАРТА */
+
+.map {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.map iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+}
+
+/* КОНТАКТЫ */
+
+.contacts {
+    text-align: center;
+}
+
+.contacts p {
+    margin-bottom: 18px;
+    color: var(--gray);
+}
+
+.contacts-phone {
+    font-size: 30px;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.messengers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.messenger {
+    padding: 14px 22px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.whatsapp {
+    background: #25d366;
+    color: #062a12;
+}
+
+.telegram {
+    background: #229ed9;
+}
+
+.max {
+    background: #7658e8;
+}
+
+.email {
+    background: #b23d3d;
+}
+
+/* ПОДВАЛ */
+
+footer {
+    background: #030b15;
+    text-align: center;
+    padding: 35px;
+    color: #aab8c8;
+}
+
+/* ПЛАВАЮЩАЯ КНОПКА */
+
+.floating {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 100;
+    background: #25d366;
+    color: #062a12;
+    padding: 15px 22px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 5px 25px #0007;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+
+@media(max-width: 900px) {
+
+    .hero-grid,
+    .equipment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 80px 0;
+    }
+
+    .hero-image {
+        max-width: 650px;
+        margin: auto;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width: 600px) {
+
+    .header-inner {
+        justify-content: center;
+        padding: 15px 0;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    section {
+        padding: 65px 0;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-price {
+        font-size: 28px;
+    }
+
+    .calculator {
+        padding: 22px;
+    }
+
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
-    <header>
-        <div class="container header-inner">
-            <div class="logo">💧 ВОДА В ДОМ</div>
-            <nav>
-                <a href="#services">Услуги</a>
-                <a href="#equipment">Техника</a>
-                <a href="#regions">Районы</a>
-                <a href="#calculator">Цены</a>
-                <a href="#contacts">Контакты</a>
-            </nav>
-            <a href="tel:+79213212530" class="header-phone">+7 (921) 321-25-30</a>
-        </div>
-    </header>
+<header>
+<div class="container header-inner">
 
-    <section class="hero">
-        <div class="container">
-            <h1>БУРЕНИЕ СКВАЖИН <br><span class="gold">НА ВОДУ</span></h1>
-            <p>Профессиональное бурение для частных домов и дач. Работаем в Сланцах, Кингисеппе, Гдове и районах.</p>
-            <p style="font-size: 24px; font-weight: bold; color: var(--gold); margin-bottom: 30px;">от 5 000 ₽/метр</p>
-            <a href="#contacts" class="btn">Заказать бурение</a>
-            <a href="#calculator" class="btn btn-outline">Рассчитать стоимость</a>
-        </div>
-    </section>
+<a href="#" class="logo">💧 ВОДА В ДОМ</a>
 
-    <section id="services">
-        <div class="container">
-            <h2 class="section-title">Наши <span class="gold">услуги</span></h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>💧 Бурение скважин</h3>
-                    <p>Бурение артезианских и песчаных скважин для автономного водоснабжения вашего загородного дома или участка.</p>
-                </div>
-                <div class="card">
-                    <h3>🔧 Обустройство скважин</h3>
-                    <p>Монтаж кессонов, адаптеров, прокладка труб и подключение водопровода к дому под ключ.</p>
-                </div>
-                <div class="card">
-                    <h3>⚙️ Насосное оборудование</h3>
-                    <p>Подбор, продажа и установка надежных погружных насосов и автоматики для стабильного давления воды.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<nav>
+<a href="#services">Услуги</a>
+<a href="#equipment">Техника</a>
+<a href="#prices">Цены</a>
+<a href="#regions">Районы</a>
+<a href="#contacts">Контакты</a>
+</nav>
 
-    <section id="equipment" style="background: var(--bg-card);">
-        <div class="container">
-            <h2 class="section-title">Наша <span class="gold">техника</span></h2>
-            <div class="equipment-grid">
-                <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1000&q=80" alt="Буровая установка УРБ 2А2 на базе ЗИЛ" class="equipment-img">
-                <div>
-                    <h3 style="color: var(--gold); font-size: 28px; margin-bottom: 20px;">УРБ 2А2 на базе ЗИЛ</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 15px;">Мы используем мощную и проверенную временем буровую установку УРБ 2А2, смонтированную на шасси автомобиля ЗИЛ.</p>
-                    <p style="color: var(--text-muted); margin-bottom: 15px;">Эта техника позволяет бурить скважины различной глубины, справляясь со сложными геологическими условиями Ленинградской и Псковской областей.</p>
-                    <p style="color: var(--text-muted);">Высокая проходимость базы ЗИЛ обеспечивает доступ к удаленным участкам.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<a href="tel:+79213212530" class="phone">
++7 (921) 321-25-30
+</a>
 
-    <section id="regions">
-        <div class="container">
-            <h2 class="section-title">География <span class="gold">работ</span></h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>📍 Сланцы</h3>
-                    <p>Город Сланцы и все населенные пункты Сланцевского района Ленинградской области.</p>
-                </div>
-                <div class="card">
-                    <h3>📍 Кингисепп</h3>
-                    <p>Город Кингисепп и населенные пункты Кингисеппского района Ленинградской области.</p>
-                </div>
-                <div class="card">
-                    <h3>📍 Гдов</h3>
-                    <p>Город Гдов и все населенные пункты Гдовского района Псковской области.</p>
-                </div>
-            </div>
-            <div class="map-container">
-                <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=27.00%2C58.30%2C29.80%2C59.80&layer=mapnik" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
+</div>
+</header>
 
-    <section id="calculator" style="background: var(--bg-card);">
-        <div class="container">
-            <h2 class="section-title">Калькулятор <span class="gold">стоимости</span></h2>
-            <div class="form-box">
-                <div class="form-group">
-                    <label>Предполагаемая глубина скважины (метров)</label>
-                    <input type="number" id="depth" placeholder="Например: 40" min="1">
-                </div>
-                <button class="btn" style="width: 100%;" onclick="calcPrice()">Рассчитать предварительную стоимость</button>
-                <div class="result-box" id="result"></div>
-                <p style="color: var(--text-muted); font-size: 14px; margin-top: 15px; text-align: center;">*Окончательная цена зависит от геологии участка и конструкции скважины.</p>
-            </div>
-        </div>
-    </section>
 
-    <section id="contacts">
-        <div class="container">
-            <h2 class="section-title">Заказать <span class="gold">бурение</span></h2>
-            <div class="grid" style="grid-template-columns: 1fr 1fr;">
-                <div>
-                    <h3 style="color: var(--gold); margin-bottom: 20px;">Свяжитесь с нами</h3>
-                    <p style="margin-bottom: 10px;">📞 <a href="tel:+79213212530" style="color: var(--gold); font-size: 22px; font-weight: bold;">+7 (921) 321-25-30</a></p>
-                    <p style="margin-bottom: 30px; color: var(--text-muted);">Звоните или пишите в мессенджеры. Мы ответим на все вопросы по бурению.</p>
-                    
-                    <div class="messengers">
-                        <a href="https://wa.me/79213212530" target="_blank" class="msg-btn wa">WhatsApp</a>
-                        <a href="https://t.me/VodaVDom47_Bot" target="_blank" class="msg-btn tg">Telegram</a>
-                        <a href="#" class="msg-btn max" title="Скоро будет доступно">MAX</a>
-                        <a href="mailto:89213212530@ya.ru" class="msg-btn email-btn">Почта</a>
-                    </div>
-                </div>
+<main>
 
-                <div class="form-box" style="margin: 0;">
-                    <h3 style="color: var(--gold); margin-bottom: 20px; text-align: center;">Оставить заявку</h3>
-                    <form id="leadForm">
-                        <div class="form-group">
-                            <label>Ваше имя</label>
-                            <input type="text" name="name" required placeholder="Иван">
-                        </div>
-                        <div class="form-group">
-                            <label>Телефон</label>
-                            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__">
-                        </div>
-                        <div class="form-group">
-                            <label>Район</label>
-                            <select name="region">
-                                <option>Сланцы и Сланцевский район</option>
-                                <option>Кингисепп и Кингисеппский район</option>
-                                <option>Гдов и Гдовский район</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Комментарий</label>
-                            <textarea name="message" rows="3" placeholder="Опишите ваш участок..."></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%;">Отправить заявку в Telegram</button>
-                        <p id="formStatus" style="text-align: center; margin-top: 15px; color: var(--gold); display: none;"></p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="hero">
 
-    <footer>
-        <div class="container">
-            <p style="font-size: 20px; font-weight: bold; color: var(--gold); margin-bottom: 10px;">💧 ВОДА В ДОМ</p>
-            <p>Бурение скважин на воду | Сланцы • Кингисепп • Гдов</p>
-            <p style="margin-top: 10px;">© 2024 Все права защищены. Тел: +7 (921) 321-25-30</p>
-        </div>
-    </footer>
+<div class="container hero-grid">
 
-    <a href="https://wa.me/79213212530" target="_blank" class="float-btn" title="Написать в WhatsApp">💬</a>
+<div>
 
-    <script>
-        // Калькулятор
-        function calcPrice() {
-            const depth = document.getElementById('depth').value;
-            const resultBox = document.getElementById('result');
-            if (depth > 0) {
-                const price = depth * 5000;
-                resultBox.textContent = 'Ориентировочная стоимость: от ' + price.toLocaleString('ru-RU') + ' ₽';
-                resultBox.style.display = 'block';
-            } else {
-                alert('Введите глубину больше 0');
-            }
-        }
+<h1>
+БУРЕНИЕ СКВАЖИН
+<span class="gold">НА ВОДУ</span>
+</h1>
 
-        // Отправка формы в Telegram через Cloudflare
-        document.getElementById('leadForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const status = document.getElementById('formStatus');
-            const btn = form.querySelector('button');
-            
-            btn.disabled = true;
-            btn.textContent = 'Отправка...';
-            status.style.display = 'none';
+<p>
+Бурение скважин для частных домов,
+дач и загородных участков.
+</p>
 
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
+<p>
+Сланцы • Кингисепп • Гдов
+</p>
 
-            try {
-                const response = await fetch('/api/application', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
+<div class="hero-price">
+от 5 000 ₽/метр
+</div>
 
-                if (response.ok) {
-                    status.textContent = '✅ Заявка успешно отправлена! Мы скоро свяжемся с вами.';
-                    status.style.color = '#25D366';
-                    form.reset();
-                } else {
-                    throw new Error('Ошибка сервера');
-                }
-            } catch (error) {
-                status.textContent = '❌ Произошла ошибка. Позвоните нам: +7 (921) 321-25-30';
-                status.style.color = '#ea4335';
-            } finally {
-                btn.disabled = false;
-                btn.textContent = 'Отправить заявку в Telegram';
-                status.style.display = 'block';
-            }
-        });
-    </script>
+<div class="hero-buttons">
+
+<a href="tel:+79213212530" class="btn">
+Заказать бурение
+</a>
+
+<a href="#calculator" class="btn btn-outline">
+Рассчитать стоимость
+</a>
+
+</div>
+
+</div>
+
+<div>
+<img
+src="urb2a2.jpg"
+alt="Буровая установка УРБ 2А2 на базе ЗИЛ"
+class="hero-image"
+>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="services">
+
+<div class="container">
+
+<h2 class="section-title">
+Наши <span class="gold">услуги</span>
+</h2>
+
+<p class="section-subtitle">
+Бурение скважин для организации
+автономного водоснабжения.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="card-icon">💧</div>
+<h3>Бурение скважин</h3>
+<p>
+Бурение скважин на воду
+для частных домов и дач.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🚜</div>
+<h3>Бурение установкой УРБ 2А2</h3>
+<p>
+Используем буровую установку
+УРБ 2А2 на базе ЗИЛ.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🏡</div>
+<h3>Вода для загородного дома</h3>
+<p>
+Помогаем организовать источник воды
+на вашем участке.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="equipment" class="section-dark">
+
+<div class="container equipment-grid">
+
+<div>
+<img
+src="urb2a2.jpg"
+alt="Буровая техника УРБ 2А2 на базе автомобиля ЗИЛ"
+loading="lazy"
+>
+</div>
+
+<div>
+
+<h2>
+Буровая установка
+<span class="gold">УРБ 2А2</span>
+</h2>
+
+<p>
+Для бурения скважин используем
+установку УРБ 2А2 на базе автомобиля ЗИЛ.
+</p>
+
+<p>
+Такая техника применяется для буровых работ
+в различных геологических условиях.
+</p>
+
+<p>
+Возможность подъезда и размещения
+буровой установки на участке
+уточняется перед выполнением работ.
+</p>
+
+<a href="tel:+79213212530" class="btn">
+Обсудить бурение
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="prices">
+
+<div class="container price-section">
+
+<h2 class="section-title">
+Стоимость <span class="gold">бурения</span>
+</h2>
+
+<p>Бурение скважин на воду</p>
+
+<div class="price-big">
+от 5 000 ₽/метр
+</div>
+
+<p>
+Окончательная стоимость зависит от глубины,
+геологии участка и дополнительных работ.
+</p>
+
+</div>
+
+</section>
+
+
+<section id="calculator" class="section-dark">
+
+<div class="container">
+
+<h2 class="section-title">
+Калькулятор <span class="gold">стоимости</span>
+</h2>
+
+<p class="section-subtitle">
+Рассчитайте предварительную стоимость
+бурения скважины.
+</p>
+
+<div class="calculator">
+
+<label for="depth">
+Предполагаемая глубина скважины, метров
+</label>
+
+<input
+type="number"
+id="depth"
+min="1"
+max="1000"
+placeholder="Например: 40"
+>
+
+<button class="btn" onclick="calculate()">
+Рассчитать стоимость
+</button>
+
+<div id="result" class="result" aria-live="polite"></div>
+
+<p style="margin-top:20px;color:#b5c5d5;font-size:14px">
+Расчёт ориентировочный, по минимальной цене
+5 000 ₽/метр. Дополнительные работы не учтены.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="process">
+
+<div class="container">
+
+<h2 class="section-title">
+Как мы <span class="gold">работаем</span>
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>01. Обращение</h3>
+<p>
+Вы звоните или пишете нам.
+Обсуждаем расположение участка
+и ваши пожелания.
+</p>
+</div>
+
+<div class="card">
+<h3>02. Расчёт</h3>
+<p>
+Обсуждаем предполагаемую глубину,
+условия бурения и стоимость работ.
+</p>
+</div>
+
+<div class="card">
+<h3>03. Бурение</h3>
+<p>
+Согласовываем дату и выполняем
+буровые работы на участке.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="regions" class="section-dark">
+
+<div class="container">
+
+<h2 class="section-title">
+География <span class="gold">работ</span>
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>📍 Сланцы</h3>
+<p>
+Город Сланцы и Сланцевский район
+Ленинградской области.
+</p>
+</div>
+
+<div class="card">
+<h3>📍 Кингисепп</h3>
+<p>
+Город Кингисепп и Кингисеппский район
+Ленинградской области.
+</p>
+</div>
+
+<div class="card">
+<h3>📍 Гдов</h3>
+<p>
+Город Гдов и Гдовский район
+Псковской области.
+</p>
+</div>
+
+</div>
+
+<div class="map">
+
+<iframe
+title="Карта районов бурения скважин"
+src="https://www.openstreetmap.org/export/embed.html?bbox=27.0%2C58.3%2C29.8%2C59.8&layer=mapnik"
+loading="lazy">
+</iframe>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="contacts">
+
+<div class="container contacts">
+
+<h2 class="section-title">
+Заказать <span class="gold">бурение</span>
+</h2>
+
+<p>
+Компания «Вода в Дом»
+</p>
+
+<a href="tel:+79213212530" class="contacts-phone">
++7 (921) 321-25-30
+</a>
+
+<p style="margin-top:20px">
+📧 89213212530@ya.ru
+</p>
+
+<p>
+Сланцы • Кингисепп • Гдов
+</p>
+
+<div class="messengers">
+
+<a
+href="https://wa.me/79213212530"
+class="messenger whatsapp"
+target="_blank"
+rel="noopener noreferrer"
+>
+WhatsApp
+</a>
+
+<a
+href="https://t.me/VodaVDom47_Bot"
+class="messenger telegram"
+target="_blank"
+rel="noopener noreferrer"
+>
+Telegram
+</a>
+
+<span
+class="messenger max"
+title="Ссылка MAX пока не подключена"
+style="opacity:0.6"
+>
+MAX — скоро
+</span>
+
+<a
+href="mailto:89213212530@ya.ru"
+class="messenger email"
+>
+Электронная почта
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<p>© 2026 «Вода в Дом»</p>
+
+<p>
+Бурение скважин на воду
+</p>
+
+<p>
+Сланцы • Кингисепп • Гдов
+</p>
+
+</footer>
+
+
+<a
+href="https://wa.me/79213212530"
+class="floating"
+target="_blank"
+rel="noopener noreferrer"
+>
+💬 WhatsApp
+</a>
+
+
+<script>
+
+function calculate() {
+
+    const input = document.getElementById("depth");
+    const result = document.getElementById("result");
+
+    const depth = Number(input.value);
+
+    if (
+        input.value.trim() === "" ||
+        !Number.isFinite(depth) ||
+        depth <= 0 ||
+        depth > 1000
+    ) {
+        result.textContent =
+            "Введите глубину от 1 до 1000 метров";
+        return;
+    }
+
+    const price = depth * 5000;
+
+    result.textContent =
+        "Стоимость: от " +
+        price.toLocaleString("ru-RU") +
+        " ₽";
+
+}
+
+</script>
+
 </body>
 </html>
