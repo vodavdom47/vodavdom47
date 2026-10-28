@@ -1,121 +1,29 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Вода в Дом — Бурение скважин Сланцы, Кингисепп, Гдов</title>
+<title>Вода в Дом — Бурение скважин на воду</title>
 
-<meta name="description" content="Бурение, ремонт, сервис и обустройство скважин на воду. Сланцы, Кингисепп, Гдов. Стоимость бурения от 5500 рублей за метр. Телефон +7 921 321-25-30.">
+<meta name="description" content="Вода в Дом — бурение, ремонт, сервис и обустройство скважин на воду. Сланцы, Кингисепп, Гдов. Бурение от 5500 рублей за метр.">
 
 <meta name="theme-color" content="#071525">
-/* СЛАЙДЕР ФОТОГРАФИЙ */
 
-.hero-slider {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    border-radius: 16px;
-    background: rgba(255,255,255,0.08);
-}
-
-.hero-slider .slide {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    opacity: 0;
-    transition: opacity 0.8s ease;
-}
-
-.hero-slider .slide.active {
-    opacity: 1;
-}
-
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    border: 1px solid rgba(255,255,255,0.3);
-    background: rgba(5,20,35,0.7);
-    color: white;
-    width: 43px;
-    height: 43px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 20px;
-    z-index: 2;
-}
-
-.slider-arrow:hover {
-    background: #dfbb73;
-    color: #061525;
-}
-
-.slider-arrow.prev {
-    left: 10px;
-}
-
-.slider-arrow.next {
-    right: 10px;
-}
-.request-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.request-channel {
-    width: 100%;
-    min-height: 52px;
-    border: none;
-    border-radius: 9px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.request-channel:hover {
-    transform: translateY(-3px);
-    filter: brightness(1.12);
-}
-
-.request-channel.whatsapp {
-    background: #25d366;
-    color: #052410;
-}
-
-.request-channel.telegram {
-    background: #229ed9;
-}
-
-.request-channel.max {
-    background: #7658e8;
-}
-
-.request-channel.email {
-    background: #b34141;
-}
-
-@media(max-width: 400px) {
-    .request-buttons {
-        grid-template-columns: 1fr;
-    }
-}    
 <style>
+
+/* ОСНОВНЫЕ НАСТРОЙКИ */
+
 :root {
     --dark: #061525;
-    --dark2: #102a44;
+    --dark2: #102b45;
     --gold: #dfbb73;
-    --gold-light: #f6d99c;
+    --gold-light: #f5d89b;
     --white: #ffffff;
-    --muted: #b9cbdc;
-    --glass: rgba(17, 43, 67, 0.67);
-    --border: rgba(255, 255, 255, 0.14);
+    --gray: #bdccda;
+    --glass: rgba(20, 49, 75, 0.65);
+    --border: rgba(255,255,255,0.16);
 }
 
 * {
@@ -131,17 +39,17 @@ html {
 body {
     font-family: Arial, sans-serif;
     color: var(--white);
-    line-height: 1.65;
+    line-height: 1.6;
 
     background:
         radial-gradient(
-            circle at 80% 10%,
-            rgba(31, 100, 150, 0.35),
-            transparent 40%
+            circle at 80% 15%,
+            rgba(39, 107, 155, 0.35),
+            transparent 45%
         ),
         radial-gradient(
-            circle at 15% 70%,
-            rgba(29, 76, 120, 0.35),
+            circle at 15% 75%,
+            rgba(25, 79, 125, 0.3),
             transparent 45%
         ),
         var(--dark);
@@ -150,8 +58,8 @@ body {
 }
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
 button,
@@ -176,24 +84,27 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(4, 17, 31, 0.82);
-    backdrop-filter: blur(18px);
+
+    background: rgba(4, 17, 31, 0.85);
+    backdrop-filter: blur(15px);
+
     border-bottom: 1px solid var(--border);
 }
 
 .header-inner {
     min-height: 82px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 20px;
 }
 
 .logo {
-    font-size: 25px;
-    font-weight: 800;
     color: var(--gold);
-    white-space: nowrap;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 nav {
@@ -203,7 +114,6 @@ nav {
 
 nav a {
     font-size: 14px;
-    transition: color 0.25s;
 }
 
 nav a:hover {
@@ -218,95 +128,105 @@ nav a:hover {
 
 .menu-toggle {
     display: none;
+
     background: transparent;
-    border: 1px solid var(--border);
     color: white;
+
+    border: 1px solid var(--border);
     border-radius: 8px;
+
     padding: 8px 13px;
     cursor: pointer;
-    font-size: 22px;
 }
 
-/* ГЛАВНАЯ */
+/* ГЛАВНЫЙ ЭКРАН */
 
 .hero {
-    min-height: 690px;
-    display: flex;
-    align-items: center;
-    padding: 90px 0;
+    padding: 100px 0;
 }
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1.05fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 40px;
+    gap: 45px;
 }
 
 .badge {
     display: inline-block;
-    color: var(--gold);
-    border: 1px solid rgba(223, 187, 115, 0.5);
-    background: rgba(223, 187, 115, 0.08);
-    padding: 8px 16px;
+
+    border: 1px solid var(--gold);
     border-radius: 30px;
-    font-size: 14px;
+
+    padding: 8px 17px;
     margin-bottom: 25px;
+
+    color: var(--gold);
+    font-size: 14px;
 }
 
 .hero h1 {
-    font-size: clamp(36px, 5vw, 62px);
+    font-size: clamp(36px, 5vw, 60px);
     line-height: 1.15;
     margin-bottom: 25px;
 }
 
 .hero p {
+    color: var(--gray);
     font-size: 19px;
-    color: var(--muted);
     margin-bottom: 25px;
 }
 
 .hero-price {
+    font-size: 35px;
+    font-weight: bold;
     color: var(--gold);
-    font-size: 33px;
-    font-weight: 800;
     margin-bottom: 30px;
 }
 
-.hero-image-box {
-    padding: 20px;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.09);
-    border: 1px solid var(--border);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+.hero-photo {
+    padding: 15px;
+    border-radius: 20px;
 }
 
-.hero-image {
-    width: 100%;
+.hero-photo img {
     display: block;
-    border-radius: 16px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* СТЕКЛЯННЫЕ БЛОКИ */
+
+.glass {
+    background: var(--glass);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
 /* КНОПКИ */
 
-.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
 .btn {
     display: inline-block;
+
     background: var(--gold);
     color: var(--dark);
+
     border: 1px solid var(--gold);
-    border-radius: 9px;
-    padding: 15px 26px;
+    border-radius: 8px;
+
+    padding: 15px 25px;
+
     font-weight: bold;
     cursor: pointer;
+
     transition: 0.3s;
-    text-align: center;
 }
 
 .btn:hover {
@@ -324,6 +244,12 @@ nav a:hover {
     color: var(--dark);
 }
 
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
 /* РАЗДЕЛЫ */
 
 section {
@@ -333,33 +259,26 @@ section {
 
 .section-title {
     text-align: center;
+
     font-size: clamp(30px, 4vw, 42px);
-    line-height: 1.25;
-    margin-bottom: 20px;
+    margin-bottom: 45px;
 }
 
-.section-subtitle {
+.section-description {
     text-align: center;
-    color: var(--muted);
+    color: var(--gray);
+
     max-width: 750px;
-    margin: 0 auto 45px;
+    margin: -20px auto 45px;
 }
 
-/* СТЕКЛЯННЫЕ БЛОКИ */
-
-.glass {
-    background: var(--glass);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-}
+/* О КОМПАНИИ */
 
 .about-box {
-    padding: 45px;
     max-width: 950px;
     margin: auto;
+
+    padding: 45px;
     text-align: center;
 }
 
@@ -368,6 +287,8 @@ section {
     color: #e4edf6;
 }
 
+/* КАРТОЧКИ */
+
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -375,13 +296,13 @@ section {
 }
 
 .card {
-    padding: 32px;
+    padding: 35px;
     transition: 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-7px);
-    border-color: rgba(223, 187, 115, 0.65);
+    transform: translateY(-5px);
+    border-color: var(--gold);
 }
 
 .card-icon {
@@ -391,12 +312,12 @@ section {
 
 .card h3 {
     color: var(--gold);
+    margin-bottom: 15px;
     font-size: 21px;
-    margin-bottom: 14px;
 }
 
 .card p {
-    color: var(--muted);
+    color: var(--gray);
 }
 
 /* ТЕХНИКА */
@@ -404,8 +325,8 @@ section {
 .equipment-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 45px;
     align-items: center;
+    gap: 45px;
 }
 
 .equipment-photo {
@@ -413,18 +334,18 @@ section {
 }
 
 .equipment-photo img {
-    width: 100%;
     display: block;
-    border-radius: 14px;
+    width: 100%;
+    border-radius: 12px;
 }
 
 .equipment-text h2 {
-    font-size: clamp(28px, 4vw, 38px);
+    font-size: 38px;
     margin-bottom: 25px;
 }
 
 .equipment-text p {
-    color: var(--muted);
+    color: var(--gray);
     margin-bottom: 18px;
 }
 
@@ -433,72 +354,77 @@ section {
 .price-box {
     max-width: 800px;
     margin: auto;
-    padding: 50px 30px;
+    padding: 45px;
     text-align: center;
 }
 
 .price-big {
-    font-size: clamp(42px, 6vw, 65px);
     color: var(--gold);
+    font-size: clamp(43px, 6vw, 65px);
     font-weight: bold;
-    margin: 25px 0;
+    margin: 20px 0;
 }
 
 .price-box p {
-    color: var(--muted);
+    color: var(--gray);
 }
 
-/* КАЛЬКУЛЯТОР */
+/* ФОРМЫ */
 
-.calculator {
+.form-box {
     max-width: 650px;
     margin: auto;
     padding: 35px;
 }
 
 .form-group {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 9px;
-    color: #e5edf5;
 }
 
 input,
 select,
 textarea {
-    display: block;
     width: 100%;
+
     padding: 15px;
-    background: rgba(5, 20, 35, 0.85);
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+
+    background: #071525;
     color: white;
-    border: 1px solid rgba(255,255,255,0.22);
-    border-radius: 9px;
-    font-size: 16px;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-    outline: 2px solid var(--gold);
-    outline-offset: 1px;
+textarea {
+    min-height: 110px;
+    resize: vertical;
 }
 
 .result {
-    text-align: center;
     margin-top: 25px;
+
     color: var(--gold);
     font-size: 24px;
     font-weight: bold;
+    text-align: center;
+}
+
+.form-note {
+    color: var(--gray);
+    font-size: 13px;
+    margin-top: 15px;
 }
 
 /* КАРТА */
 
 .map {
-    margin-top: 35px;
     overflow: hidden;
+    margin-top: 35px;
 }
 
 .map iframe {
@@ -508,58 +434,29 @@ textarea:focus {
     border: 0;
 }
 
-/* ЗАЯВКА */
+/* КНОПКИ ЗАЯВКИ */
 
-.request-box {
-    max-width: 650px;
-    margin: auto;
-    padding: 35px;
-}
-
-.request-box textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-.request-box .btn {
-    width: 100%;
-}
-
-.form-note {
-    color: var(--muted);
-    font-size: 13px;
-    margin-top: 15px;
-}
-
-/* КОНТАКТЫ */
-
-.contacts {
-    text-align: center;
-}
-
-.contact-phone {
-    font-size: 28px;
-    color: var(--gold);
-    font-weight: bold;
-}
-
-.contacts p {
-    color: var(--muted);
-    margin: 16px 0;
-}
-
-.messengers {
-    display: flex;
+.request-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 25px;
 }
 
-.messenger {
-    padding: 13px 20px;
-    border-radius: 9px;
+.request-channel {
+    padding: 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    color: white;
     font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.request-channel:hover {
+    transform: translateY(-3px);
 }
 
 .whatsapp {
@@ -571,94 +468,103 @@ textarea:focus {
     background: #229ed9;
 }
 
+.max {
+    background: #7658e8;
+}
+
 .email {
     background: #b34141;
 }
 
-.max {
-    background: #7658e8;
-    opacity: 1;
+/* КОНТАКТЫ */
+
+.contacts {
+    text-align: center;
+}
+
+.contact-phone {
+    display: inline-block;
+
+    color: var(--gold);
+    font-size: 29px;
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.contacts p {
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+.messengers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.messenger {
+    display: inline-block;
+
+    padding: 13px 20px;
+    border-radius: 8px;
+
+    font-weight: bold;
 }
 
 /* ПЛАВАЮЩИЕ КНОПКИ */
 
 .floating-actions {
     position: fixed;
-    bottom: 22px;
-    right: 22px;
-    z-index: 1100;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1200;
+
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 .float-action {
-    border-radius: 30px;
     padding: 12px 18px;
-    color: white;
+
+    border-radius: 30px;
+
     font-weight: bold;
-    box-shadow: 0 5px 20px #0006;
     text-align: center;
+
+    box-shadow: 0 5px 20px #0006;
 }
 
 .float-phone {
-    background: #d9b56d;
-    color: #071525;
-}
-
-.float-wa {
-    background: #25d366;
-    color: #052410;
-}
-
-.float-tg {
-    background: #229ed9;
+    background: var(--gold);
+    color: var(--dark);
 }
 
 /* ПОДВАЛ */
 
 footer {
-    padding: 35px 15px;
-    background: rgba(2, 9, 17, 0.85);
+    background: rgba(2,9,17,0.9);
     text-align: center;
-    color: var(--muted);
+
+    padding: 35px 15px;
+    color: var(--gray);
 }
 
 footer p {
     margin: 5px 0;
 }
 
-/* АНИМАЦИИ */
+/* АДАПТАЦИЯ */
 
-.reveal {
-    opacity: 0;
-    transform: translateY(25px);
-    transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ПЛАНШЕТ */
-
-@media (max-width: 950px) {
+@media(max-width: 950px) {
 
     .hero-grid,
     .equipment-grid {
         grid-template-columns: 1fr;
-    }
-
-    .hero {
-        padding: 65px 0;
-    }
-
-    .hero-image-box {
-        max-width: 700px;
-        margin: auto;
     }
 
     .grid {
@@ -671,9 +577,7 @@ footer p {
 
 }
 
-/* ТЕЛЕФОН */
-
-@media (max-width: 650px) {
+@media(max-width: 650px) {
 
     .header-inner {
         min-height: 70px;
@@ -689,45 +593,27 @@ footer p {
 
     nav {
         display: none;
+
         position: absolute;
         top: 70px;
         left: 0;
+
         width: 100%;
+
+        background: #061525;
+
+        padding: 15px;
+
         flex-direction: column;
-        gap: 0;
-        padding: 12px 5%;
-        background: rgba(5, 17, 30, 0.98);
-        border-bottom: 1px solid var(--border);
+        gap: 15px;
     }
 
     nav.open {
         display: flex;
     }
 
-    nav a {
-        padding: 12px;
-        font-size: 16px;
-    }
-
     .hero {
-        padding: 55px 0;
-        min-height: auto;
-    }
-
-    .hero h1 {
-        font-size: 37px;
-    }
-
-    .hero p {
-        font-size: 17px;
-    }
-
-    .hero-price {
-        font-size: 29px;
-    }
-
-    .hero-image-box {
-        padding: 10px;
+        padding: 60px 0;
     }
 
     section {
@@ -738,27 +624,27 @@ footer p {
         grid-template-columns: 1fr;
     }
 
+    .hero h1 {
+        font-size: 36px;
+    }
+
     .about-box {
-        padding: 28px 22px;
+        padding: 25px;
     }
 
     .about-box p {
         font-size: 18px;
     }
 
-    .calculator,
-    .request-box {
-        padding: 23px;
-    }
-
-    .buttons .btn {
-        width: 100%;
+    .form-box {
+        padding: 22px;
     }
 
     .floating-actions {
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+
         flex-direction: row;
         gap: 6px;
     }
@@ -775,30 +661,27 @@ footer p {
 
 }
 
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+@media(max-width: 400px) {
+
+    .request-buttons {
+        grid-template-columns: 1fr;
     }
 
-    .reveal {
-        opacity: 1;
-        transform: none;
-    }
 }
 
 </style>
 </head>
 
+
 <body>
 
 <header>
+
 <div class="container header-inner">
 
-<a href="#" class="logo">💧 ВОДА В ДОМ</a>
+<a href="#" class="logo">
+💧 ВОДА В ДОМ
+</a>
 
 <button
 class="menu-toggle"
@@ -806,18 +689,19 @@ id="menu-toggle"
 type="button"
 aria-label="Открыть меню"
 aria-expanded="false"
-aria-controls="main-nav"
 >
 ☰
 </button>
 
 <nav id="main-nav">
+
 <a href="#about">О компании</a>
 <a href="#services">Услуги</a>
 <a href="#equipment">Техника</a>
 <a href="#prices">Цены</a>
 <a href="#regions">Районы</a>
 <a href="#contacts">Контакты</a>
+
 </nav>
 
 <a href="tel:+79213212530" class="header-phone">
@@ -825,10 +709,14 @@ aria-controls="main-nav"
 </a>
 
 </div>
+
 </header>
 
 
 <main>
+
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
 
 <section class="hero">
 
@@ -866,41 +754,14 @@ aria-controls="main-nav"
 
 </div>
 
-<div class="hero-image-box">
+</div>
 
-    <div class="hero-slider">
+<div class="glass hero-photo">
 
-        <img
-            src="bureniye1.jpg"
-            alt="Буровая установка на базе ЗИЛ"
-            class="slide active"
-        >
-
-        <img
-            src="bureniye2.jpg"
-            alt="Схема водоснабжения дома из скважины"
-            class="slide"
-        >
-
-        <button
-            class="slider-arrow prev"
-            type="button"
-            onclick="changeSlide(-1)"
-            aria-label="Предыдущее фото"
-        >
-            ❮
-        </button>
-
-        <button
-            class="slider-arrow next"
-            type="button"
-            onclick="changeSlide(1)"
-            aria-label="Следующее фото"
-        >
-            ❯
-        </button>
-
-    </div>
+<img
+src="bureniye1.jpg"
+alt="Буровая установка на базе ЗИЛ"
+>
 
 </div>
 
@@ -909,15 +770,17 @@ aria-controls="main-nav"
 </section>
 
 
+<!-- О КОМПАНИИ -->
+
 <section id="about">
 
 <div class="container">
 
-<h2 class="section-title reveal">
+<h2 class="section-title">
 О <span class="gold">компании</span>
 </h2>
 
-<div class="glass about-box reveal">
+<div class="glass about-box">
 
 <p>
 <strong>Вода в Дом</strong> — это профессионалы
@@ -933,41 +796,55 @@ aria-controls="main-nav"
 </section>
 
 
+<!-- УСЛУГИ -->
+
 <section id="services">
 
 <div class="container">
 
-<h2 class="section-title reveal">
+<h2 class="section-title">
 Наши <span class="gold">услуги</span>
 </h2>
 
 <div class="grid">
 
-<div class="glass card reveal">
+<div class="glass card">
+
 <div class="card-icon">💧</div>
+
 <h3>Бурение скважин</h3>
+
 <p>
-Бурение скважин на воду для частных
-домов, дач и загородных участков.
+Бурение скважин на воду
+для частных домов и дач.
 </p>
+
 </div>
 
-<div class="glass card reveal">
+<div class="glass card">
+
 <div class="card-icon">🔧</div>
+
 <h3>Ремонт скважин</h3>
+
 <p>
 Работы по ремонту скважин
 с учётом их технического состояния.
 </p>
+
 </div>
 
-<div class="glass card reveal">
+<div class="glass card">
+
 <div class="card-icon">⚙️</div>
+
 <h3>Обустройство скважин</h3>
+
 <p>
 Работы по обустройству скважин
 для организации водоснабжения.
 </p>
+
 </div>
 
 </div>
@@ -977,21 +854,23 @@ aria-controls="main-nav"
 </section>
 
 
+<!-- ТЕХНИКА -->
+
 <section id="equipment">
 
 <div class="container equipment-grid">
 
-<div class="glass equipment-photo reveal">
+<div class="glass equipment-photo">
 
 <img
 src="urb2a2.jpg"
-alt="Буровая установка на базе ЗИЛ"
+alt="Буровая установка УРБ 2А2 на базе ЗИЛ"
 loading="lazy"
 >
 
 </div>
 
-<div class="equipment-text reveal">
+<div class="equipment-text">
 
 <h2>
 Буровая установка
@@ -999,12 +878,12 @@ loading="lazy"
 </h2>
 
 <p>
-Для бурения скважин используем установку
-УРБ 2А2 на базе автомобиля ЗИЛ.
+Для бурения скважин используем
+установку УРБ 2А2 на базе автомобиля ЗИЛ.
 </p>
 
 <p>
-Техника предназначена для выполнения
+Техника применяется для выполнения
 буровых работ в различных геологических условиях.
 </p>
 
@@ -1024,15 +903,17 @@ loading="lazy"
 </section>
 
 
+<!-- ЦЕНЫ -->
+
 <section id="prices">
 
 <div class="container">
 
-<h2 class="section-title reveal">
+<h2 class="section-title">
 Стоимость <span class="gold">бурения</span>
 </h2>
 
-<div class="glass price-box reveal">
+<div class="glass price-box">
 
 <p>Бурение скважин на воду</p>
 
@@ -1041,8 +922,9 @@ loading="lazy"
 </div>
 
 <p>
-Окончательная стоимость зависит от глубины,
-геологических условий и дополнительных работ.
+Окончательная стоимость зависит
+от глубины скважины, геологии участка
+и дополнительных работ.
 </p>
 
 </div>
@@ -1052,19 +934,17 @@ loading="lazy"
 </section>
 
 
+<!-- КАЛЬКУЛЯТОР -->
+
 <section id="calculator">
 
 <div class="container">
 
-<h2 class="section-title reveal">
+<h2 class="section-title">
 Калькулятор <span class="gold">стоимости</span>
 </h2>
 
-<p class="section-subtitle">
-Рассчитайте предварительную стоимость бурения.
-</p>
-
-<div class="glass calculator reveal">
+<div class="glass form-box">
 
 <div class="form-group">
 
@@ -1102,11 +982,12 @@ placeholder="Например: 40"
 Рассчитать стоимость
 </button>
 
-<div id="calc-result" class="result" aria-live="polite"></div>
+<div class="result" id="calc-result" aria-live="polite"></div>
 
 <p class="form-note">
-Расчёт производится по минимальному тарифу
-5 500 ₽/метр без учёта дополнительных работ.
+Расчёт ориентировочный.
+Цена от 5 500 ₽/метр.
+Дополнительные работы не учитываются.
 </p>
 
 </div>
@@ -1116,46 +997,57 @@ placeholder="Например: 40"
 </section>
 
 
+<!-- РАЙОНЫ -->
+
 <section id="regions">
 
 <div class="container">
 
-<h2 class="section-title reveal">
+<h2 class="section-title">
 География <span class="gold">работ</span>
 </h2>
 
 <div class="grid">
 
-<div class="glass card reveal">
+<div class="glass card">
+
 <h3>📍 Сланцы</h3>
+
 <p>
 Город Сланцы и Сланцевский район
 Ленинградской области.
 </p>
+
 </div>
 
-<div class="glass card reveal">
+<div class="glass card">
+
 <h3>📍 Кингисепп</h3>
+
 <p>
 Город Кингисепп и Кингисеппский район
 Ленинградской области.
 </p>
+
 </div>
 
-<div class="glass card reveal">
+<div class="glass card">
+
 <h3>📍 Гдов</h3>
+
 <p>
 Город Гдов и Гдовский район
 Псковской области.
 </p>
-</div>
 
 </div>
 
-<div class="glass map reveal">
+</div>
+
+<div class="glass map">
 
 <iframe
-title="Карта районов работы"
+title="Карта районов бурения"
 src="https://www.openstreetmap.org/export/embed.html?bbox=27.0%2C58.3%2C29.8%2C59.8&layer=mapnik"
 loading="lazy">
 </iframe>
@@ -1167,25 +1059,28 @@ loading="lazy">
 </section>
 
 
+<!-- ЗАЯВКА -->
+
 <section id="request">
 
 <div class="container">
 
-<h2 class="section-title reveal">
+<h2 class="section-title">
 Оставить <span class="gold">заявку</span>
 </h2>
 
-<p class="section-subtitle">
-Заполните форму, и мы подготовим сообщение
-для отправки через WhatsApp.
+<p class="section-description">
+Заполните форму и выберите удобный способ связи.
 </p>
 
-<div class="glass request-box reveal">
+<div class="glass form-box">
 
 <form id="request-form">
 
 <div class="form-group">
+
 <label for="client-name">Ваше имя</label>
+
 <input
 type="text"
 id="client-name"
@@ -1193,10 +1088,13 @@ required
 maxlength="100"
 placeholder="Иван"
 >
+
 </div>
 
 <div class="form-group">
-<label for="client-phone">Номер телефона</label>
+
+<label for="client-phone">Телефон</label>
+
 <input
 type="tel"
 id="client-phone"
@@ -1204,69 +1102,74 @@ required
 maxlength="30"
 placeholder="+7 921 000-00-00"
 >
+
 </div>
 
 <div class="form-group">
+
 <label for="client-region">Район</label>
 
 <select id="client-region">
+
 <option>Сланцевский район</option>
 <option>Кингисеппский район</option>
 <option>Гдовский район</option>
+
 </select>
+
 </div>
 
 <div class="form-group">
+
 <label for="client-message">Комментарий</label>
 
 <textarea
 id="client-message"
 maxlength="1000"
-placeholder="Напишите, какие работы вас интересуют"
+placeholder="Какие работы вас интересуют?"
 ></textarea>
+
 </div>
 
 <div class="request-buttons">
 
-    <button
-        type="button"
-        class="request-channel whatsapp"
-        onclick="sendRequest('whatsapp')"
-    >
-        WhatsApp
-    </button>
+<button
+type="button"
+class="request-channel whatsapp"
+onclick="sendRequest('whatsapp')"
+>
+WhatsApp
+</button>
 
-    <button
-        type="button"
-        class="request-channel telegram"
-        onclick="sendRequest('telegram')"
-    >
-        Telegram
-    </button>
+<button
+type="button"
+class="request-channel telegram"
+onclick="sendRequest('telegram')"
+>
+Telegram
+</button>
 
-    <button
-        type="button"
-        class="request-channel max"
-        onclick="sendRequest('max')"
-    >
-        MAX
-    </button>
+<button
+type="button"
+class="request-channel max"
+onclick="sendRequest('max')"
+>
+MAX
+</button>
 
-    <button
-        type="button"
-        class="request-channel email"
-        onclick="sendRequest('email')"
-    >
-        ✉ Почта
-    </button>
+<button
+type="button"
+class="request-channel email"
+onclick="sendRequest('email')"
+>
+✉ Почта
+</button>
 
 </div>
 
 <p class="form-note">
-После нажатия откроется WhatsApp
-с подготовленным сообщением.
-Для завершения отправки нажмите
-кнопку отправки в WhatsApp.
+Для WhatsApp и почты будет подготовлено сообщение.
+Telegram и MAX откроют чат для отправки заявки вручную.
 </p>
 
 </form>
@@ -1277,6 +1180,8 @@ placeholder="Напишите, какие работы вас интересую
 
 </section>
 
+
+<!-- КОНТАКТЫ -->
 
 <section id="contacts">
 
@@ -1342,6 +1247,7 @@ class="messenger email"
 
 </section>
 
+
 </main>
 
 
@@ -1350,8 +1256,7 @@ class="messenger email"
 <p>© 2026 «Вода в Дом»</p>
 
 <p>
-Бурение, ремонт, сервис и обустройство
-скважин на воду
+Бурение, ремонт, сервис и обустройство скважин
 </p>
 
 <p>
@@ -1360,6 +1265,8 @@ class="messenger email"
 
 </footer>
 
+
+<!-- ПЛАВАЮЩИЕ КНОПКИ -->
 
 <div class="floating-actions">
 
@@ -1372,7 +1279,7 @@ class="float-action float-phone"
 
 <a
 href="https://wa.me/79213212530"
-class="float-action float-wa"
+class="float-action whatsapp"
 target="_blank"
 rel="noopener noreferrer"
 >
@@ -1380,12 +1287,12 @@ WhatsApp
 </a>
 
 <a
-href="https://t.me/VodaVDom47_Bot"
-class="float-action float-tg"
+href="https://max.ru/u/f9LHodD0cOJrDOn4ICu6rKGSbW3sCedNTyUztdKpnmMC8Uhp-ifj0za6uQw"
+class="float-action max"
 target="_blank"
 rel="noopener noreferrer"
 >
-Telegram
+MAX
 </a>
 
 </div>
@@ -1398,7 +1305,7 @@ Telegram
 const menuToggle = document.getElementById("menu-toggle");
 const mainNav = document.getElementById("main-nav");
 
-menuToggle.addEventListener("click", () => {
+menuToggle.addEventListener("click", function() {
 
     const isOpen = mainNav.classList.toggle("open");
 
@@ -1411,9 +1318,9 @@ menuToggle.addEventListener("click", () => {
 
 });
 
-mainNav.querySelectorAll("a").forEach(link => {
+mainNav.querySelectorAll("a").forEach(function(link) {
 
-    link.addEventListener("click", () => {
+    link.addEventListener("click", function() {
 
         mainNav.classList.remove("open");
 
@@ -1430,18 +1337,21 @@ mainNav.querySelectorAll("a").forEach(link => {
 
 function calculate() {
 
-    const depthInput = document.getElementById("calc-depth");
+    const input = document.getElementById("calc-depth");
     const result = document.getElementById("calc-result");
 
-    const depth = Number(depthInput.value);
+    const depth = Number(input.value);
 
     if (
-        depthInput.value.trim() === "" ||
+        input.value.trim() === "" ||
         !Number.isFinite(depth) ||
         depth <= 0 ||
         depth > 1000
     ) {
-        result.textContent = "Введите глубину от 1 до 1000 метров";
+
+        result.textContent =
+            "Введите глубину от 1 до 1000 метров";
+
         return;
     }
 
@@ -1454,8 +1364,6 @@ function calculate() {
 
 }
 
-
-/* ОТПРАВКА ЧЕРЕЗ WHATSAPP */
 
 /* ОТПРАВКА ЗАЯВОК */
 
@@ -1496,170 +1404,58 @@ function sendRequest(channel) {
 
     if (channel === "whatsapp") {
 
-        const url =
+        window.open(
             "https://wa.me/79213212530?text=" +
-            encodeURIComponent(text);
-
-        window.open(url, "_blank", "noopener,noreferrer");
+            encodeURIComponent(text),
+            "_blank"
+        );
 
     }
 
     if (channel === "telegram") {
 
-        /*
-        Ссылка открывает вашего бота.
-        Автоматическая передача формы пока не подключена.
-        */
-
-        navigator.clipboard?.writeText(text).catch(() => {});
-
         alert(
             "Откроется Telegram. " +
-            "Текст заявки будет скопирован, если браузер " +
-            "разрешит доступ к буферу обмена. " +
-            "Вставьте сообщение в чат и отправьте его."
+            "Скопируйте данные заявки из формы " +
+            "и отправьте их в чат."
         );
 
         window.open(
             "https://t.me/VodaVDom47_Bot",
-            "_blank",
-            "noopener,noreferrer"
+            "_blank"
         );
 
     }
 
     if (channel === "max") {
 
-        /*
-        Открываем профиль MAX.
-        Автоматическая передача формы пока не подключена.
-        */
-
-        navigator.clipboard?.writeText(text).catch(() => {});
-
         alert(
             "Откроется MAX. " +
-            "Вставьте подготовленный текст заявки " +
-            "в переписку и отправьте сообщение."
+            "Скопируйте данные заявки из формы " +
+            "и отправьте их в переписку."
         );
 
         window.open(
             MAX_URL,
-            "_blank",
-            "noopener,noreferrer"
+            "_blank"
         );
 
     }
 
     if (channel === "email") {
 
-        const subject = "Заявка с сайта Вода в Дом";
+        const subject =
+            "Заявка с сайта Вода в Дом";
 
-        const url =
+        window.location.href =
             "mailto:89213212530@ya.ru" +
             "?subject=" + encodeURIComponent(subject) +
             "&body=" + encodeURIComponent(text);
 
-        window.location.href = url;
-
     }
 
 }
 
-        event.preventDefault();
-
-        const name = document.getElementById("client-name").value.trim();
-        const phone = document.getElementById("client-phone").value.trim();
-        const region = document.getElementById("client-region").value;
-        const message = document.getElementById("client-message").value.trim();
-
-        if (!name || !phone) {
-            alert("Укажите имя и телефон");
-            return;
-        }
-
-        const text =
-            "Здравствуйте! Хочу заказать работы по скважине.\n\n" +
-            "Имя: " + name + "\n" +
-            "Телефон: " + phone + "\n" +
-            "Район: " + region + "\n" +
-            "Комментарий: " + (message || "Нет");
-
-        const url =
-            "https://wa.me/79213212530?text=" +
-            encodeURIComponent(text);
-
-        window.open(url, "_blank", "noopener,noreferrer");
-
-    }
-);
-
-
-/* ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ */
-
-const revealElements = document.querySelectorAll(".reveal");
-
-if ("IntersectionObserver" in window) {
-
-    const observer = new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("visible");
-
-                    observer.unobserve(entry.target);
-
-                }
-
-            });
-
-        },
-        { threshold: 0.08 }
-    );
-
-    revealElements.forEach(element => {
-        observer.observe(element);
-    });
-
-} else {
-
-    revealElements.forEach(element => {
-        element.classList.add("visible");
-    });
-
-}
-/* ПЕРЕКЛЮЧЕНИЕ ФОТОГРАФИЙ */
-
-const slides = document.querySelectorAll(".hero-slider .slide");
-
-let currentSlide = 0;
-
-function showSlide(index) {
-
-    if (!slides.length) return;
-
-    slides[currentSlide].classList.remove("active");
-
-    currentSlide =
-        (index + slides.length) % slides.length;
-
-    slides[currentSlide].classList.add("active");
-}
-
-function changeSlide(direction) {
-    showSlide(currentSlide + direction);
-}
-
-if (slides.length > 1) {
-
-    setInterval(() => {
-        showSlide(currentSlide + 1);
-    }, 5000);
-
-}
 </script>
 
 </body>
