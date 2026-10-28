@@ -9,7 +9,103 @@
 <meta name="description" content="Бурение, ремонт, сервис и обустройство скважин на воду. Сланцы, Кингисепп, Гдов. Стоимость бурения от 5500 рублей за метр. Телефон +7 921 321-25-30.">
 
 <meta name="theme-color" content="#071525">
+/* СЛАЙДЕР ФОТОГРАФИЙ */
 
+.hero-slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.08);
+}
+
+.hero-slider .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.hero-slider .slide.active {
+    opacity: 1;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(5,20,35,0.7);
+    color: white;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 2;
+}
+
+.slider-arrow:hover {
+    background: #dfbb73;
+    color: #061525;
+}
+
+.slider-arrow.prev {
+    left: 10px;
+}
+
+.slider-arrow.next {
+    right: 10px;
+}
+.request-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.request-channel {
+    width: 100%;
+    min-height: 52px;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.request-channel:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.12);
+}
+
+.request-channel.whatsapp {
+    background: #25d366;
+    color: #052410;
+}
+
+.request-channel.telegram {
+    background: #229ed9;
+}
+
+.request-channel.max {
+    background: #7658e8;
+}
+
+.request-channel.email {
+    background: #b34141;
+}
+
+@media(max-width: 400px) {
+    .request-buttons {
+        grid-template-columns: 1fr;
+    }
+}    
 <style>
 :root {
     --dark: #061525;
@@ -481,7 +577,7 @@ textarea:focus {
 
 .max {
     background: #7658e8;
-    opacity: 0.65;
+    opacity: 1;
 }
 
 /* ПЛАВАЮЩИЕ КНОПКИ */
@@ -770,16 +866,41 @@ aria-controls="main-nav"
 
 </div>
 
-</div>
-
 <div class="hero-image-box">
 
-<img
-src="urb2a2.jpg"
-alt="Буровая установка УРБ 2А2 на базе ЗИЛ"
-class="hero-image"
-style="width:100%;display:block;border-radius:15px"
->
+    <div class="hero-slider">
+
+        <img
+            src="bureniye1.jpg"
+            alt="Буровая установка на базе ЗИЛ"
+            class="slide active"
+        >
+
+        <img
+            src="bureniye2.jpg"
+            alt="Схема водоснабжения дома из скважины"
+            class="slide"
+        >
+
+        <button
+            class="slider-arrow prev"
+            type="button"
+            onclick="changeSlide(-1)"
+            aria-label="Предыдущее фото"
+        >
+            ❮
+        </button>
+
+        <button
+            class="slider-arrow next"
+            type="button"
+            onclick="changeSlide(1)"
+            aria-label="Следующее фото"
+        >
+            ❯
+        </button>
+
+    </div>
 
 </div>
 
@@ -1105,9 +1226,41 @@ placeholder="Напишите, какие работы вас интересую
 ></textarea>
 </div>
 
-<button class="btn" type="submit">
-Отправить через WhatsApp
-</button>
+<div class="request-buttons">
+
+    <button
+        type="button"
+        class="request-channel whatsapp"
+        onclick="sendRequest('whatsapp')"
+    >
+        WhatsApp
+    </button>
+
+    <button
+        type="button"
+        class="request-channel telegram"
+        onclick="sendRequest('telegram')"
+    >
+        Telegram
+    </button>
+
+    <button
+        type="button"
+        class="request-channel max"
+        onclick="sendRequest('max')"
+    >
+        MAX
+    </button>
+
+    <button
+        type="button"
+        class="request-channel email"
+        onclick="sendRequest('email')"
+    >
+        ✉ Почта
+    </button>
+
+</div>
 
 <p class="form-note">
 После нажатия откроется WhatsApp
@@ -1167,9 +1320,14 @@ rel="noopener noreferrer"
 Telegram
 </a>
 
-<span class="messenger max" title="Ссылка MAX пока не подключена">
-MAX — скоро
-</span>
+<a
+href="https://max.ru/u/f9LHodD0cOJrDOn4ICu6rKGSbW3sCedNTyUztdKpnmMC8Uhp-ifj0za6uQw"
+class="messenger max"
+target="_blank"
+rel="noopener noreferrer"
+>
+MAX
+</a>
 
 <a
 href="mailto:89213212530@ya.ru"
@@ -1299,9 +1457,114 @@ function calculate() {
 
 /* ОТПРАВКА ЧЕРЕЗ WHATSAPP */
 
-document.getElementById("request-form").addEventListener(
-    "submit",
-    function(event) {
+/* ОТПРАВКА ЗАЯВОК */
+
+const MAX_URL =
+    "https://max.ru/u/f9LHodD0cOJrDOn4ICu6rKGSbW3sCedNTyUztdKpnmMC8Uhp-ifj0za6uQw";
+
+function sendRequest(channel) {
+
+    const form = document.getElementById("request-form");
+
+    if (!form.reportValidity()) {
+        return;
+    }
+
+    const name =
+        document.getElementById("client-name").value.trim();
+
+    const phone =
+        document.getElementById("client-phone").value.trim();
+
+    const region =
+        document.getElementById("client-region").value;
+
+    const message =
+        document.getElementById("client-message").value.trim();
+
+    if (!name || !phone) {
+        alert("Укажите имя и телефон");
+        return;
+    }
+
+    const text =
+        "Здравствуйте! Хочу заказать работы по скважине.\n\n" +
+        "Имя: " + name + "\n" +
+        "Телефон: " + phone + "\n" +
+        "Район: " + region + "\n" +
+        "Комментарий: " + (message || "Нет");
+
+    if (channel === "whatsapp") {
+
+        const url =
+            "https://wa.me/79213212530?text=" +
+            encodeURIComponent(text);
+
+        window.open(url, "_blank", "noopener,noreferrer");
+
+    }
+
+    if (channel === "telegram") {
+
+        /*
+        Ссылка открывает вашего бота.
+        Автоматическая передача формы пока не подключена.
+        */
+
+        navigator.clipboard?.writeText(text).catch(() => {});
+
+        alert(
+            "Откроется Telegram. " +
+            "Текст заявки будет скопирован, если браузер " +
+            "разрешит доступ к буферу обмена. " +
+            "Вставьте сообщение в чат и отправьте его."
+        );
+
+        window.open(
+            "https://t.me/VodaVDom47_Bot",
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+    }
+
+    if (channel === "max") {
+
+        /*
+        Открываем профиль MAX.
+        Автоматическая передача формы пока не подключена.
+        */
+
+        navigator.clipboard?.writeText(text).catch(() => {});
+
+        alert(
+            "Откроется MAX. " +
+            "Вставьте подготовленный текст заявки " +
+            "в переписку и отправьте сообщение."
+        );
+
+        window.open(
+            MAX_URL,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+    }
+
+    if (channel === "email") {
+
+        const subject = "Заявка с сайта Вода в Дом";
+
+        const url =
+            "mailto:89213212530@ya.ru" +
+            "?subject=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(text);
+
+        window.location.href = url;
+
+    }
+
+}
 
         event.preventDefault();
 
@@ -1368,7 +1631,35 @@ if ("IntersectionObserver" in window) {
     });
 
 }
+/* ПЕРЕКЛЮЧЕНИЕ ФОТОГРАФИЙ */
 
+const slides = document.querySelectorAll(".hero-slider .slide");
+
+let currentSlide = 0;
+
+function showSlide(index) {
+
+    if (!slides.length) return;
+
+    slides[currentSlide].classList.remove("active");
+
+    currentSlide =
+        (index + slides.length) % slides.length;
+
+    slides[currentSlide].classList.add("active");
+}
+
+function changeSlide(direction) {
+    showSlide(currentSlide + direction);
+}
+
+if (slides.length > 1) {
+
+    setInterval(() => {
+        showSlide(currentSlide + 1);
+    }, 5000);
+
+}
 </script>
 
 </body>
