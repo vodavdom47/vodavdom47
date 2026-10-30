@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /vodavdom47/
+
+Sitemap: https://vodavdom47.github.io/vodavdom47/sitemap.xml
