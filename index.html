@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Бурение скважин на воду в Сланцах, Кингисеппе и Гдове | Вода в Дом</title>
 
-<meta name="description" content="Бурение скважин на воду от 5 500 ₽/м в Сланцах, Кингисеппе и Гдове. Ремонт, сервис и обустройство скважин. Работаем по Сланцевскому, Кингисеппскому и Гдовскому районам. Вода в Дом.">
+<meta name="description" content="Бурение скважин на воду — 5 500 ₽/метр. Сланцы, Кингисепп, Гдов. Ремонт, сервис и обустройство скважин. Работаем по Сланцевскому, Кингисеппскому и Гдовскому районам.">
 
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#071525">
@@ -17,7 +18,7 @@
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Вода в Дом">
 <meta property="og:title" content="Бурение скважин на воду — Вода в Дом">
-<meta property="og:description" content="Бурение скважин от 5 500 ₽/м. Сланцы, Кингисепп, Гдов. Ремонт, сервис и обустройство скважин на воду.">
+<meta property="og:description" content="Бурение скважин — 5 500 ₽/метр. Сланцы, Кингисепп, Гдов. Ремонт, сервис и обустройство скважин.">
 <meta property="og:url" content="https://vodavdom47.github.io/vodavdom47/">
 <meta property="og:image" content="https://vodavdom47.github.io/vodavdom47/bureniye1.jpg">
 
@@ -31,7 +32,6 @@
   "description": "Бурение, ремонт, сервис и обустройство скважин на воду.",
   "telephone": "+79213212530",
   "email": "89213212530@ya.ru",
-  "priceRange": "от 5500 ₽/м",
   "areaServed": [
     {"@type": "Place", "name": "Сланцы и Сланцевский район"},
     {"@type": "Place", "name": "Кингисепп и Кингисеппский район"},
@@ -41,28 +41,28 @@
     "@type": "OfferCatalog",
     "name": "Услуги компании Вода в Дом",
     "itemListElement": [
-      {
-        "@type": "OfferCatalog",
-        "name": "Бурение скважин на воду"
-      },
-      {
-        "@type": "OfferCatalog",
-        "name": "Ремонт скважин"
-      },
-      {
-        "@type": "OfferCatalog",
-        "name": "Сервис скважин"
-      },
-      {
-        "@type": "OfferCatalog",
-        "name": "Обустройство скважин"
-      }
+      {"@type": "OfferCatalog", "name": "Бурение скважин на воду"},
+      {"@type": "OfferCatalog", "name": "Ремонт скважин"},
+      {"@type": "OfferCatalog", "name": "Сервис скважин"},
+      {"@type": "OfferCatalog", "name": "Обустройство скважин"}
     ]
   }
 }
 </script>
 
+<!-- СТИЛИ КАРТЫ LEAFLET -->
+
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzxk7B6hVDaDO9czjQYqlM=​"
+crossorigin=""
+>
+
 <style>
+
+/* ОСНОВНЫЕ НАСТРОЙКИ */
+
 :root {
     --dark: #061525;
     --dark2: #102b45;
@@ -88,10 +88,20 @@ body {
     font-family: Arial, sans-serif;
     color: var(--white);
     line-height: 1.6;
+
     background:
-        radial-gradient(circle at 80% 15%, rgba(39, 107, 155, 0.35), transparent 45%),
-        radial-gradient(circle at 15% 75%, rgba(25, 79, 125, 0.3), transparent 45%),
+        radial-gradient(
+            circle at 80% 15%,
+            rgba(39, 107, 155, 0.35),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 15% 75%,
+            rgba(25, 79, 125, 0.3),
+            transparent 45%
+        ),
         var(--dark);
+
     background-attachment: fixed;
 }
 
@@ -100,7 +110,10 @@ a {
     text-decoration: none;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
     font: inherit;
 }
 
@@ -113,21 +126,27 @@ button, input, select, textarea {
     color: var(--gold);
 }
 
+/* ШАПКА */
+
 header {
     position: sticky;
     top: 0;
     z-index: 1000;
+
     background: rgba(4, 17, 31, 0.85);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
+
     border-bottom: 1px solid var(--border);
 }
 
 .header-inner {
     min-height: 82px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 20px;
 }
 
@@ -158,13 +177,18 @@ nav a:hover {
 
 .menu-toggle {
     display: none;
+
     background: transparent;
     color: white;
+
     border: 1px solid var(--border);
     border-radius: 8px;
+
     padding: 8px 13px;
     cursor: pointer;
 }
+
+/* ГЛАВНЫЙ ЭКРАН */
 
 .hero {
     padding: 100px 0;
@@ -179,10 +203,13 @@ nav a:hover {
 
 .badge {
     display: inline-block;
+
     border: 1px solid var(--gold);
     border-radius: 30px;
+
     padding: 8px 17px;
     margin-bottom: 25px;
+
     color: var(--gold);
     font-size: 14px;
 }
@@ -218,24 +245,36 @@ nav a:hover {
     border-radius: 12px;
 }
 
+/* СТЕКЛЯННЫЕ БЛОКИ */
+
 .glass {
     background: var(--glass);
+
     border: 1px solid var(--border);
     border-radius: 18px;
+
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
+
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
+/* КНОПКИ */
+
 .btn {
     display: inline-block;
+
     background: var(--gold);
     color: var(--dark);
+
     border: 1px solid var(--gold);
     border-radius: 8px;
+
     padding: 15px 25px;
+
     font-weight: bold;
     cursor: pointer;
+
     transition: 0.3s;
 }
 
@@ -266,6 +305,8 @@ nav a:hover {
     gap: 15px;
 }
 
+/* РАЗДЕЛЫ */
+
 section {
     padding: 85px 0;
     scroll-margin-top: 90px;
@@ -273,6 +314,7 @@ section {
 
 .section-title {
     text-align: center;
+
     font-size: clamp(30px, 4vw, 42px);
     margin-bottom: 45px;
 }
@@ -280,13 +322,17 @@ section {
 .section-description {
     text-align: center;
     color: var(--gray);
+
     max-width: 750px;
     margin: -20px auto 45px;
 }
 
+/* О КОМПАНИИ */
+
 .about-box {
     max-width: 950px;
     margin: auto;
+
     padding: 45px;
     text-align: center;
 }
@@ -295,6 +341,8 @@ section {
     font-size: 21px;
     color: #e4edf6;
 }
+
+/* КАРТОЧКИ */
 
 .grid {
     display: grid;
@@ -327,6 +375,8 @@ section {
     color: var(--gray);
 }
 
+/* ТЕХНИКА */
+
 .equipment-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -354,6 +404,8 @@ section {
     margin-bottom: 18px;
 }
 
+/* ЦЕНЫ */
+
 .price-box {
     max-width: 800px;
     margin: auto;
@@ -372,6 +424,8 @@ section {
     color: var(--gray);
 }
 
+/* ФОРМЫ */
+
 .form-box {
     max-width: 650px;
     margin: auto;
@@ -387,16 +441,23 @@ section {
     margin-bottom: 9px;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     width: 100%;
+
     padding: 15px;
+
     border: 1px solid rgba(255,255,255,0.25);
     border-radius: 8px;
+
     background: #071525;
     color: white;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
     outline: 2px solid var(--gold);
     outline-offset: 2px;
 }
@@ -408,6 +469,7 @@ textarea {
 
 .result {
     margin-top: 25px;
+
     color: var(--gold);
     font-size: 24px;
     font-weight: bold;
@@ -420,17 +482,74 @@ textarea {
     margin-top: 15px;
 }
 
-.map {
-    overflow: hidden;
+/* ИНТЕРАКТИВНАЯ КАРТА */
+
+.map-box {
     margin-top: 35px;
+    padding: 15px;
 }
 
-.map iframe {
-    display: block;
+#service-map {
     width: 100%;
-    height: 430px;
-    border: 0;
+    height: 480px;
+    border-radius: 12px;
+    z-index: 1;
+    background: #dbe4e8;
 }
+
+.map-legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--white);
+    font-size: 14px;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-slantsy {
+    background: #dfbb73;
+}
+
+.legend-kingisepp {
+    background: #3498db;
+}
+
+.legend-gdov {
+    background: #45c78a;
+}
+
+.map-note {
+    text-align: center;
+    color: var(--gray);
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.leaflet-popup-content {
+    color: #172b40;
+    font-family: Arial, sans-serif;
+}
+
+.leaflet-container a {
+    color: #1670a7;
+}
+
+/* ФОРМА ЗАЯВКИ */
 
 .request-submit {
     display: block;
@@ -477,15 +596,19 @@ textarea {
     color: var(--gold);
 }
 
+/* КОНТАКТЫ */
+
 .contacts {
     text-align: center;
 }
 
 .contact-phone {
     display: inline-block;
+
     color: var(--gold);
     font-size: 29px;
     font-weight: bold;
+
     margin-bottom: 20px;
 }
 
@@ -499,13 +622,16 @@ textarea {
     justify-content: center;
     flex-wrap: wrap;
     gap: 12px;
+
     margin-top: 30px;
 }
 
 .messenger {
     display: inline-block;
+
     padding: 13px 20px;
     border-radius: 8px;
+
     font-weight: bold;
 }
 
@@ -529,9 +655,12 @@ textarea {
     color: white;
 }
 
+/* ПОДВАЛ */
+
 footer {
     background: rgba(2,9,17,0.9);
     text-align: center;
+
     padding: 35px 15px;
     color: var(--gray);
 }
@@ -540,41 +669,1266 @@ footer p {
     margin: 5px 0;
 }
 
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+
 @media(max-width: 950px) {
-    .hero-grid, .equipment-grid {
+
+    .hero-grid,
+    .equipment-grid {
         grid-template-columns: 1fr;
     }
+
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .header-phone {
         display: none;
     }
 }
 
 @media(max-width: 650px) {
+
     .header-inner {
         min-height: 70px;
     }
+
     .logo {
         font-size: 21px;
     }
+
     .menu-toggle {
         display: block;
     }
+
     nav {
         display: none;
+
         position: absolute;
         top: 70px;
         left: 0;
+
         width: 100%;
         background: #061525;
+
         padding: 15px;
+
         flex-direction: column;
         gap: 15px;
     }
+
     nav.open {
         display: flex;
     }
+
     .hero {
-        padding: 60px 
+        padding: 60px 0;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .about-box {
+        padding: 25px;
+    }
+
+    .about-box p {
+        font-size: 18px;
+    }
+
+    .form-box {
+        padding: 22px;
+    }
+
+    #service-map {
+        height: 360px;
+    }
+
+    .map-legend {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 10px;
+    }
+
+    footer {
+        padding-bottom: 35px;
+    }
+}
+
+</style>
+
+<!-- SMARTCAPTCHA -->
+
+<script
+src="https://smartcaptcha.yandexcloud.net/captcha.js"
+defer>
+</script>
+
+<!-- БИБЛИОТЕКА ИНТЕРАКТИВНОЙ КАРТЫ -->
+
+<script
+src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""
+defer>
+</script>
+
+</head>
+
+<body>
+
+<!-- ШАПКА -->
+
+<header>
+
+<div class="container header-inner">
+
+<a href="#" class="logo">
+💧 ВОДА В ДОМ
+</a>
+
+<button
+class="menu-toggle"
+id="menu-toggle"
+type="button"
+aria-label="Открыть меню"
+aria-expanded="false"
+>
+☰
+</button>
+
+<nav id="main-nav">
+
+<a href="#about">О компании</a>
+<a href="#services">Услуги</a>
+<a href="#equipment">Техника</a>
+<a href="#prices">Цены</a>
+<a href="#regions">Районы</a>
+<a href="#contacts">Контакты</a>
+
+</nav>
+
+<a href="tel:+79213212530" class="header-phone">
++7 (921) 321-25-30
+</a>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="badge">
+Сланцы • Кингисепп • Гдов
+</div>
+
+<h1>
+БУРЕНИЕ СКВАЖИН
+<span class="gold">НА ВОДУ</span>
+</h1>
+
+<p>
+Бурение скважин на воду в Сланцах,
+Кингисеппе и Гдове. Ремонт, сервис
+и обустройство скважин для частных домов
+и дачных участков.
+</p>
+
+<div class="hero-price">
+5 500 ₽/метр
+</div>
+
+<div class="buttons">
+
+<a href="#request" class="btn">
+Оставить заявку
+</a>
+
+<a href="#calculator" class="btn btn-outline">
+Рассчитать стоимость
+</a>
+
+</div>
+
+</div>
+
+<div class="glass hero-photo">
+
+<img
+src="bureniye1.jpg"
+alt="Бурение скважин на воду — буровая установка на базе ЗИЛ"
+>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- О КОМПАНИИ -->
+
+<section id="about">
+
+<div class="container">
+
+<h2 class="section-title">
+О <span class="gold">компании</span>
+</h2>
+
+<div class="glass about-box">
+
+<p>
+<strong>Вода в Дом</strong> — это профессионалы
+в сфере выполнения работ по бурению,
+ремонту, сервису и обустройству
+скважин на воду.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- УСЛУГИ -->
+
+<section id="services">
+
+<div class="container">
+
+<h2 class="section-title">
+Наши <span class="gold">услуги</span>
+</h2>
+
+<div class="grid">
+
+<div class="glass card">
+
+<div class="card-icon">💧</div>
+
+<h3>Бурение скважин на воду</h3>
+
+<p>
+Бурение скважин для частных домов и дач
+в Сланцевском, Кингисеппском
+и Гдовском районах.
+</p>
+
+</div>
+
+<div class="glass card">
+
+<div class="card-icon">🔧</div>
+
+<h3>Ремонт скважин</h3>
+
+<p>
+Работы по ремонту скважин на воду
+с учётом их технического состояния.
+</p>
+
+</div>
+
+<div class="glass card">
+
+<div class="card-icon">⚙️</div>
+
+<h3>Обустройство скважин</h3>
+
+<p>
+Работы по обустройству скважин
+для организации водоснабжения
+частного дома или дачи.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ТЕХНИКА -->
+
+<section id="equipment">
+
+<div class="container equipment-grid">
+
+<div class="glass equipment-photo">
+
+<img
+src="urb2a2.jpg"
+alt="Буровая установка УРБ 2А2 на базе ЗИЛ"
+loading="lazy"
+>
+
+</div>
+
+<div class="equipment-text">
+
+<h2>
+Буровая установка
+<span class="gold">УРБ 2А2</span>
+</h2>
+
+<p>
+Для бурения скважин используем
+установку УРБ 2А2 на базе автомобиля ЗИЛ.
+</p>
+
+<p>
+Техника применяется для выполнения
+буровых работ в различных геологических условиях.
+</p>
+
+<p>
+Перед началом работ уточняем
+возможность подъезда техники к участку.
+</p>
+
+<a href="tel:+79213212530" class="btn">
+Обсудить бурение
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ЦЕНЫ -->
+
+<section id="prices">
+
+<div class="container">
+
+<h2 class="section-title">
+Стоимость <span class="gold">бурения</span>
+</h2>
+
+<div class="glass price-box">
+
+<p>Бурение скважин на воду</p>
+
+<div class="price-big">
+5 500 ₽/метр
+</div>
+
+<p>
+Окончательная стоимость зависит
+от глубины скважины, геологии участка
+и дополнительных работ.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- КАЛЬКУЛЯТОР -->
+
+<section id="calculator">
+
+<div class="container">
+
+<h2 class="section-title">
+Калькулятор <span class="gold">стоимости</span>
+</h2>
+
+<div class="glass form-box">
+
+<div class="form-group">
+
+<label for="calc-region">
+Район бурения
+</label>
+
+<select id="calc-region">
+
+<option>Сланцы и Сланцевский район</option>
+<option>Кингисепп и Кингисеппский район</option>
+<option>Гдов и Гдовский район</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label for="calc-depth">
+Предполагаемая глубина, метров
+</label>
+
+<input
+type="number"
+id="calc-depth"
+min="1"
+max="1000"
+placeholder="Например: 40"
+>
+
+</div>
+
+<button
+class="btn"
+type="button"
+onclick="calculate()"
+>
+Рассчитать стоимость
+</button>
+
+<div
+class="result"
+id="calc-result"
+aria-live="polite"
+>
+</div>
+
+<p class="form-note">
+Расчёт ориентировочный.
+Цена 5 500 ₽/метр.
+Дополнительные работы не учитываются.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- РАЙОНЫ И ИНТЕРАКТИВНАЯ КАРТА -->
+
+<section id="regions">
+
+<div class="container">
+
+<h2 class="section-title">
+География <span class="gold">работ</span>
+</h2>
+
+<div class="grid">
+
+<div class="glass card">
+
+<h3>📍 Бурение скважин в Сланцах</h3>
+
+<p>
+Город Сланцы и Сланцевский район
+Ленинградской области.
+</p>
+
+</div>
+
+<div class="glass card">
+
+<h3>📍 Бурение скважин в Кингисеппе</h3>
+
+<p>
+Город Кингисепп и Кингисеппский район
+Ленинградской области.
+</p>
+
+</div>
+
+<div class="glass card">
+
+<h3>📍 Бурение скважин в Гдове</h3>
+
+<p>
+Город Гдов и Гдовский район
+Псковской области.
+</p>
+
+</div>
+
+</div>
+
+<div class="glass map-box">
+
+<div
+id="service-map"
+role="region"
+aria-label="Интерактивная карта зон обслуживания вокруг Сланцев, Кингисеппа и Гдова"
+>
+</div>
+
+<div class="map-legend">
+
+<div class="legend-item">
+<span class="legend-color legend-slantsy"></span>
+Сланцы и Сланцевский район
+</div>
+
+<div class="legend-item">
+<span class="legend-color legend-kingisepp"></span>
+Кингисепп и Кингисеппский район
+</div>
+
+<div class="legend-item">
+<span class="legend-color legend-gdov"></span>
+Гдов и Гдовский район
+</div>
+
+</div>
+
+<p class="map-note">
+Цветные круги показывают ориентировочные зоны
+выездного обслуживания, а не точные административные
+границы районов. Возможность выполнения работ
+по конкретному адресу уточняйте по телефону.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ЗАЯВКА -->
+
+<section id="request">
+
+<div class="container">
+
+<h2 class="section-title">
+Оставить <span class="gold">заявку</span>
+</h2>
+
+<p class="section-description">
+Заполните форму, и мы свяжемся с вами
+для обсуждения работ.
+</p>
+
+<div class="glass form-box">
+
+<form id="request-form">
+
+<div class="form-group">
+
+<label for="client-name">
+Ваше имя
+</label>
+
+<input
+type="text"
+id="client-name"
+name="name"
+required
+minlength="2"
+maxlength="100"
+autocomplete="name"
+placeholder="Иван"
+>
+
+</div>
+
+<div class="form-group">
+
+<label for="client-phone">
+Телефон
+</label>
+
+<input
+type="tel"
+id="client-phone"
+name="phone"
+required
+maxlength="25"
+autocomplete="tel"
+placeholder="+7 921 000-00-00"
+>
+
+</div>
+
+<div class="form-group">
+
+<label for="client-region">
+Район
+</label>
+
+<select
+id="client-region"
+name="region"
+required
+>
+
+<option value="">
+Выберите район
+</option>
+
+<option value="Сланцевский район">
+Сланцевский район
+</option>
+
+<option value="Кингисеппский район">
+Кингисеппский район
+</option>
+
+<option value="Гдовский район">
+Гдовский район
+</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label for="client-message">
+Комментарий
+</label>
+
+<textarea
+id="client-message"
+name="comment"
+maxlength="1000"
+placeholder="Какие работы вас интересуют?"
+></textarea>
+
+</div>
+
+
+<!-- SMARTCAPTCHA -->
+
+<div class="captcha-container">
+
+<div
+id="smartcaptcha"
+class="smart-captcha"
+data-sitekey="ysc1_YiyfulTHNJe3B8HhWH0iMYhbq7j6gmz7CWTEztM34b1c274f"
+>
+</div>
+
+</div>
+
+<p class="captcha-message">
+Для отправки заявки пройдите проверку «Я не робот».
+</p>
+
+
+<!-- ОТПРАВКА -->
+
+<button
+type="submit"
+class="btn request-submit"
+id="submit-request"
+>
+Отправить заявку
+</button>
+
+
+<div
+class="form-status"
+id="form-status"
+role="status"
+aria-live="polite"
+>
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- КОНТАКТЫ -->
+
+<section id="contacts">
+
+<div class="container contacts">
+
+<h2 class="section-title">
+Наши <span class="gold">контакты</span>
+</h2>
+
+<a
+href="tel:+79213212530"
+class="contact-phone"
+>
++7 (921) 321-25-30
+</a>
+
+<p>
+<a href="mailto:89213212530@ya.ru">
+📧 89213212530@ya.ru
+</a>
+</p>
+
+<p>
+Сланцы • Кингисепп • Гдов
+</p>
+
+<div class="messengers">
+
+<a
+href="https://wa.me/79213212530"
+class="messenger whatsapp"
+target="_blank"
+rel="noopener noreferrer"
+>
+WhatsApp
+</a>
+
+<a
+href="https://t.me/VodaVDom47_Bot"
+class="messenger telegram"
+target="_blank"
+rel="noopener noreferrer"
+>
+Telegram
+</a>
+
+<a
+href="https://max.ru/u/f9LHodD0cOJrDOn4ICu6rKGSbW3sCedNTyUztdKpnmMC8Uhp-ifj0za6uQw"
+class="messenger max"
+target="_blank"
+rel="noopener noreferrer"
+>
+MAX
+</a>
+
+<a
+href="mailto:89213212530@ya.ru"
+class="messenger email"
+>
+Почта
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- ПОДВАЛ -->
+
+<footer>
+
+<p>© 2026 «Вода в Дом»</p>
+
+<p>
+Бурение, ремонт, сервис и обустройство скважин
+</p>
+
+<p>
+Сланцы • Кингисепп • Гдов
+</p>
+
+</footer>
+
+
+<script>
+
+/* НАСТРОЙКИ ОБЛАЧНОЙ ФУНКЦИИ */
+
+const APPLICATION_ENDPOINT =
+    "https://functions.yandexcloud.net/d4equ8pd04sde7pq7fca";
+
+
+/* МОБИЛЬНОЕ МЕНЮ */
+
+const menuToggle =
+    document.getElementById("menu-toggle");
+
+const mainNav =
+    document.getElementById("main-nav");
+
+menuToggle.addEventListener("click", function() {
+
+    const isOpen = mainNav.classList.toggle("open");
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+    );
+
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+
+});
+
+mainNav.querySelectorAll("a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        mainNav.classList.remove("open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuToggle.textContent = "☰";
+
+    });
+
+});
+
+
+/* КАЛЬКУЛЯТОР */
+
+function calculate() {
+
+    const input =
+        document.getElementById("calc-depth");
+
+    const result =
+        document.getElementById("calc-result");
+
+    const depth = Number(input.value);
+
+    if (
+        input.value.trim() === "" ||
+        !Number.isFinite(depth) ||
+        depth <= 0 ||
+        depth > 1000
+    ) {
+
+        result.textContent =
+            "Введите глубину от 1 до 1000 метров";
+
+        return;
+    }
+
+    const price = depth * 5500;
+
+    result.textContent =
+        "Предварительная стоимость: " +
+        price.toLocaleString("ru-RU") +
+        " ₽";
+
+}
+
+
+/* ИНТЕРАКТИВНАЯ КАРТА */
+
+function initializeServiceMap() {
+
+    const mapElement =
+        document.getElementById("service-map");
+
+    if (!mapElement || typeof L === "undefined") {
+        console.warn("Библиотека карты не загрузилась");
+        return;
+    }
+
+    const map = L.map("service-map", {
+        scrollWheelZoom: false
+    });
+
+    L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            attribution:
+                '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>',
+            maxZoom: 18
+        }
+    ).addTo(map);
+
+
+    /* СЛАНЦЫ */
+
+    const slantsy = L.circle(
+        [59.118, 28.092],
+        {
+            radius: 22000,
+            color: "#b78b30",
+            weight: 3,
+            fillColor: "#dfbb73",
+            fillOpacity: 0.28
+        }
+    ).addTo(map);
+
+    slantsy.bindPopup(
+        "<strong>Сланцы и Сланцевский район</strong><br>" +
+        "Бурение, ремонт, сервис и обустройство скважин.<br>" +
+        "Зона обслуживания ориентировочная."
+    );
+
+    L.marker([59.118, 28.092])
+        .addTo(map)
+        .bindPopup("<strong>Сланцы</strong><br>Вода в Дом — выездные работы");
+
+
+    /* КИНГИСЕПП */
+
+    const kingisepp = L.circle(
+        [59.373, 28.613],
+        {
+            radius: 27000,
+            color: "#2276b5",
+            weight: 3,
+            fillColor: "#3498db",
+            fillOpacity: 0.25
+        }
+    ).addTo(map);
+
+    kingisepp.bindPopup(
+        "<strong>Кингисепп и Кингисеппский район</strong><br>" +
+        "Бурение, ремонт, сервис и обустройство скважин.<br>" +
+        "Зона обслуживания ориентировочная."
+    );
+
+    L.marker([59.373, 28.613])
+        .addTo(map)
+        .bindPopup("<strong>Кингисепп</strong><br>Вода в Дом — выездные работы");
+
+
+    /* ГДОВ */
+
+    const gdov = L.circle(
+        [58.742, 27.825],
+        {
+            radius: 25000,
+            color: "#248c5c",
+            weight: 3,
+            fillColor: "#45c78a",
+            fillOpacity: 0.28
+        }
+    ).addTo(map);
+
+    gdov.bindPopup(
+        "<strong>Гдов и Гдовский район</strong><br>" +
+        "Бурение, ремонт, сервис и обустройство скважин.<br>" +
+        "Зона обслуживания ориентировочная."
+    );
+
+    L.marker([58.742, 27.825])
+        .addTo(map)
+        .bindPopup("<strong>Гдов</strong><br>Вода в Дом — выездные работы");
+
+
+    /* ПОКАЗЫВАЕМ ВСЕ ТРИ ЗОНЫ */
+
+    const allZones = L.featureGroup([
+        slantsy,
+        kingisepp,
+        gdov
+    ]);
+
+    map.fitBounds(
+        allZones.getBounds(),
+        {
+            padding: [25, 25]
+        }
+    );
+
+}
+
+
+/* ЗАГРУЗКА КАРТЫ */
+
+window.addEventListener("load", function() {
+
+    initializeServiceMap();
+
+});
+
+
+/* ОТПРАВКА ЗАЯВКИ */
+
+const requestForm =
+    document.getElementById("request-form");
+
+const submitButton =
+    document.getElementById("submit-request");
+
+const formStatus =
+    document.getElementById("form-status");
+
+
+function showStatus(message, type) {
+
+    formStatus.textContent = message;
+
+    formStatus.className =
+        "form-status " + type;
+
+}
+
+
+/* СБРОС SMARTCAPTCHA */
+
+function resetCaptcha() {
+
+    try {
+
+        if (
+            window.smartCaptcha &&
+            typeof window.smartCaptcha.reset === "function"
+        ) {
+
+            window.smartCaptcha.reset();
+
+        }
+
+    } catch (error) {
+
+        console.warn(
+            "Не удалось сбросить SmartCaptcha"
+        );
+
+    }
+
+}
+
+
+/* ОБРАБОТКА ОТПРАВКИ */
+
+requestForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+        if (!requestForm.reportValidity()) {
+            return;
+        }
+
+        const name =
+            document.getElementById(
+                "client-name"
+            ).value.trim();
+
+        const phone =
+            document.getElementById(
+                "client-phone"
+            ).value.trim();
+
+        const region =
+            document.getElementById(
+                "client-region"
+            ).value;
+
+        const comment =
+            document.getElementById(
+                "client-message"
+            ).value.trim();
+
+
+        /* ПРОВЕРКА ИМЕНИ */
+
+        if (name.length < 2) {
+
+            showStatus(
+                "Укажите ваше имя.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        /* ПРОВЕРКА ТЕЛЕФОНА */
+
+        if (!/^\+?[\d\s()\-]{10,25}$/.test(phone)) {
+
+            showStatus(
+                "Проверьте номер телефона.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        /* ТОКЕН КАПЧИ */
+
+        const captchaInput =
+            document.querySelector(
+                '#request-form input[name="smart-token"]'
+            );
+
+        const captchaToken =
+            captchaInput ? captchaInput.value : "";
+
+
+        if (!captchaToken) {
+
+            showStatus(
+                "Пройдите проверку «Я не робот».",
+                "error"
+            );
+
+            return;
+        }
+
+
+        /* ДАННЫЕ ЗАЯВКИ */
+
+        const application = {
+
+            name: name,
+
+            phone: phone,
+
+            region: region,
+
+            comment: comment,
+
+            smartCaptchaToken: captchaToken
+
+        };
+
+
+        /* БЛОКИРУЕМ ПОВТОРНОЕ НАЖАТИЕ */
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+            "Отправляем заявку...";
+
+        showStatus(
+            "Пожалуйста, подождите...",
+            "info"
+        );
+
+
+        try {
+
+            const controller =
+                new AbortController();
+
+            const timeout = setTimeout(
+                function() {
+                    controller.abort();
+                },
+                25000
+            );
+
+            let response;
+
+            try {
+
+                response = await fetch(
+                    APPLICATION_ENDPOINT,
+                    {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify(application),
+
+                        signal: controller.signal
+
+                    }
+                );
+
+            } finally {
+
+                clearTimeout(timeout);
+
+            }
+
+
+            /* ОБРАБОТКА ОТВЕТА */
+
+            let result;
+
+            try {
+
+                result = await response.json();
+
+            } catch (error) {
+
+                throw new Error(
+                    "Некорректный ответ сервера"
+                );
+
+            }
+
+
+            /* УСПЕШНАЯ ОТПРАВКА */
+
+            if (
+                response.ok &&
+                result.success === true
+            ) {
+
+                showStatus(
+                    "Спасибо! Ваша заявка успешно отправлена. " +
+                    "Мы скоро с вами свяжемся.",
+                    "success"
+                );
+
+                requestForm.reset();
+
+            } else {
+
+                showStatus(
+                    result.error ||
+                    "Не удалось отправить заявку. " +
+                    "Попробуйте ещё раз.",
+                    "error"
+                );
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Ошибка отправки заявки:",
+                error
+            );
+
+            showStatus(
+                "Не удалось отправить заявку. " +
+                "Проверьте соединение и попробуйте ещё раз. " +
+                "Если ошибка повторяется, позвоните нам.",
+                "error"
+            );
+
+        } finally {
+
+            submitButton.disabled = false;
+
+            submitButton.textContent =
+                "Отправить заявку";
+
+            resetCaptcha();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
