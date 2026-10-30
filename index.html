@@ -2,6 +2,7 @@
 <html lang="ru">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -87,6 +88,7 @@ header {
 
     background: rgba(4, 17, 31, 0.85);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 
     border-bottom: 1px solid var(--border);
 }
@@ -232,6 +234,12 @@ nav a:hover {
 .btn:hover {
     background: var(--gold-light);
     transform: translateY(-3px);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
 }
 
 .btn-outline {
@@ -400,6 +408,13 @@ textarea {
     color: white;
 }
 
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
 textarea {
     min-height: 110px;
     resize: vertical;
@@ -434,46 +449,51 @@ textarea {
     border: 0;
 }
 
-/* КНОПКИ ЗАЯВКИ */
+/* НОВАЯ ФОРМА ЗАЯВКИ */
 
-.request-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+.request-submit {
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    padding: 17px 25px;
 }
 
-.request-channel {
-    padding: 15px;
+.captcha-container {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
 
-    border: none;
-    border-radius: 8px;
+.captcha-container > div {
+    max-width: 100%;
+}
 
-    color: white;
+.captcha-message {
+    color: var(--gray);
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form-status {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
-
-    transition: 0.3s;
+    min-height: 26px;
 }
 
-.request-channel:hover {
-    transform: translateY(-3px);
+.form-status.success {
+    color: #83e6a3;
 }
 
-.whatsapp {
-    background: #25d366;
-    color: #052410;
+.form-status.error {
+    color: #ff9e9e;
 }
 
-.telegram {
-    background: #229ed9;
-}
-
-.max {
-    background: #7658e8;
-}
-
-.email {
-    background: #b34141;
+.form-status.info {
+    color: var(--gold);
 }
 
 /* КОНТАКТЫ */
@@ -515,33 +535,24 @@ textarea {
     font-weight: bold;
 }
 
-/* ПЛАВАЮЩИЕ КНОПКИ */
-
-.floating-actions {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1200;
-
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.whatsapp {
+    background: #25d366;
+    color: #052410;
 }
 
-.float-action {
-    padding: 12px 18px;
-
-    border-radius: 30px;
-
-    font-weight: bold;
-    text-align: center;
-
-    box-shadow: 0 5px 20px #0006;
+.telegram {
+    background: #229ed9;
+    color: white;
 }
 
-.float-phone {
-    background: var(--gold);
-    color: var(--dark);
+.max {
+    background: #7658e8;
+    color: white;
+}
+
+.email {
+    background: #b34141;
+    color: white;
 }
 
 /* ПОДВАЛ */
@@ -558,7 +569,7 @@ footer p {
     margin: 5px 0;
 }
 
-/* АДАПТАЦИЯ */
+/* МОБИЛЬНАЯ ВЕРСИЯ */
 
 @media(max-width: 950px) {
 
@@ -599,7 +610,6 @@ footer p {
         left: 0;
 
         width: 100%;
-
         background: #061525;
 
         padding: 15px;
@@ -640,38 +650,20 @@ footer p {
         padding: 22px;
     }
 
-    .floating-actions {
-        left: 8px;
-        right: 8px;
-        bottom: 8px;
-
-        flex-direction: row;
-        gap: 6px;
-    }
-
-    .float-action {
-        flex: 1;
-        padding: 11px 5px;
-        font-size: 12px;
-    }
-
     footer {
-        padding-bottom: 90px;
-    }
-
-}
-
-@media(max-width: 400px) {
-
-    .request-buttons {
-        grid-template-columns: 1fr;
+        padding-bottom: 35px;
     }
 
 }
 
 </style>
-</head>
 
+<script
+src="https://smartcaptcha.yandexcloud.net/captcha.js"
+defer>
+</script>
+
+</head>
 
 <body>
 
@@ -1070,7 +1062,8 @@ loading="lazy">
 </h2>
 
 <p class="section-description">
-Заполните форму и выберите удобный способ связи.
+Заполните форму, и мы свяжемся с вами
+для обсуждения работ.
 </p>
 
 <div class="glass form-box">
@@ -1079,13 +1072,18 @@ loading="lazy">
 
 <div class="form-group">
 
-<label for="client-name">Ваше имя</label>
+<label for="client-name">
+Ваше имя
+</label>
 
 <input
 type="text"
 id="client-name"
+name="name"
 required
+minlength="2"
 maxlength="100"
+autocomplete="name"
 placeholder="Иван"
 >
 
@@ -1093,13 +1091,17 @@ placeholder="Иван"
 
 <div class="form-group">
 
-<label for="client-phone">Телефон</label>
+<label for="client-phone">
+Телефон
+</label>
 
 <input
 type="tel"
 id="client-phone"
+name="phone"
 required
-maxlength="30"
+maxlength="25"
+autocomplete="tel"
 placeholder="+7 921 000-00-00"
 >
 
@@ -1107,13 +1109,31 @@ placeholder="+7 921 000-00-00"
 
 <div class="form-group">
 
-<label for="client-region">Район</label>
+<label for="client-region">
+Район
+</label>
 
-<select id="client-region">
+<select
+id="client-region"
+name="region"
+required
+>
 
-<option>Сланцевский район</option>
-<option>Кингисеппский район</option>
-<option>Гдовский район</option>
+<option value="">
+Выберите район
+</option>
+
+<option value="Сланцевский район">
+Сланцевский район
+</option>
+
+<option value="Кингисеппский район">
+Кингисеппский район
+</option>
+
+<option value="Гдовский район">
+Гдовский район
+</option>
 
 </select>
 
@@ -1121,56 +1141,58 @@ placeholder="+7 921 000-00-00"
 
 <div class="form-group">
 
-<label for="client-message">Комментарий</label>
+<label for="client-message">
+Комментарий
+</label>
 
 <textarea
 id="client-message"
+name="comment"
 maxlength="1000"
 placeholder="Какие работы вас интересуют?"
 ></textarea>
 
 </div>
 
-<div class="request-buttons">
 
-<button
-type="button"
-class="request-channel whatsapp"
-onclick="sendRequest('whatsapp')"
->
-WhatsApp
-</button>
+<!-- ЗАЩИТА SMARTCAPTCHA -->
 
-<button
-type="button"
-class="request-channel telegram"
-onclick="sendRequest('telegram')"
->
-Telegram
-</button>
+<div class="captcha-container">
 
-<button
-type="button"
-class="request-channel max"
-onclick="sendRequest('max')"
+<div
+id="smartcaptcha"
+class="smart-captcha"
+data-sitekey="ysc1_YiyfulTHNJe3B8HhWH0iMYhbq7j6gmz7CWTEztM34b1c274f"
 >
-MAX
-</button>
-
-<button
-type="button"
-class="request-channel email"
-onclick="sendRequest('email')"
->
-✉ Почта
-</button>
+</div>
 
 </div>
 
-<p class="form-note">
-Для WhatsApp и почты будет подготовлено сообщение.
-Telegram и MAX откроют чат для отправки заявки вручную.
+<p class="captcha-message">
+Для отправки заявки пройдите проверку «Я не робот».
 </p>
+
+
+<!-- КНОПКА ОТПРАВКИ -->
+
+<button
+type="submit"
+class="btn request-submit"
+id="submit-request"
+>
+Отправить заявку
+</button>
+
+
+<!-- РЕЗУЛЬТАТ ОТПРАВКИ -->
+
+<div
+class="form-status"
+id="form-status"
+role="status"
+aria-live="polite"
+>
+</div>
 
 </form>
 
@@ -1251,6 +1273,8 @@ class="messenger email"
 </main>
 
 
+<!-- ПОДВАЛ -->
+
 <footer>
 
 <p>© 2026 «Вода в Дом»</p>
@@ -1266,44 +1290,21 @@ class="messenger email"
 </footer>
 
 
-<!-- ПЛАВАЮЩИЕ КНОПКИ -->
-
-<div class="floating-actions">
-
-<a
-href="tel:+79213212530"
-class="float-action float-phone"
->
-📞 Звонок
-</a>
-
-<a
-href="https://wa.me/79213212530"
-class="float-action whatsapp"
-target="_blank"
-rel="noopener noreferrer"
->
-WhatsApp
-</a>
-
-<a
-href="https://max.ru/u/f9LHodD0cOJrDOn4ICu6rKGSbW3sCedNTyUztdKpnmMC8Uhp-ifj0za6uQw"
-class="float-action max"
-target="_blank"
-rel="noopener noreferrer"
->
-MAX
-</a>
-
-</div>
-
-
 <script>
+
+/* НАСТРОЙКИ ОБЛАЧНОЙ ФУНКЦИИ */
+
+const APPLICATION_ENDPOINT =
+    "https://functions.yandexcloud.net/d4equ8pd04sde7pq7fca";
+
 
 /* МОБИЛЬНОЕ МЕНЮ */
 
-const menuToggle = document.getElementById("menu-toggle");
-const mainNav = document.getElementById("main-nav");
+const menuToggle =
+    document.getElementById("menu-toggle");
+
+const mainNav =
+    document.getElementById("main-nav");
 
 menuToggle.addEventListener("click", function() {
 
@@ -1324,7 +1325,10 @@ mainNav.querySelectorAll("a").forEach(function(link) {
 
         mainNav.classList.remove("open");
 
-        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
         menuToggle.textContent = "☰";
 
@@ -1337,8 +1341,11 @@ mainNav.querySelectorAll("a").forEach(function(link) {
 
 function calculate() {
 
-    const input = document.getElementById("calc-depth");
-    const result = document.getElementById("calc-result");
+    const input =
+        document.getElementById("calc-depth");
+
+    const result =
+        document.getElementById("calc-result");
 
     const depth = Number(input.value);
 
@@ -1365,96 +1372,275 @@ function calculate() {
 }
 
 
-/* ОТПРАВКА ЗАЯВОК */
+/* ОТПРАВКА ЗАЯВКИ */
 
-const MAX_URL =
-    "https://max.ru/u/f9LHodD0cOJrDOn4ICu6rKGSbW3sCedNTyUztdKpnmMC8Uhp-ifj0za6uQw";
+const requestForm =
+    document.getElementById("request-form");
 
-function sendRequest(channel) {
+const submitButton =
+    document.getElementById("submit-request");
 
-    const form = document.getElementById("request-form");
+const formStatus =
+    document.getElementById("form-status");
 
-    if (!form.reportValidity()) {
-        return;
-    }
 
-    const name =
-        document.getElementById("client-name").value.trim();
+function showStatus(message, type) {
 
-    const phone =
-        document.getElementById("client-phone").value.trim();
+    formStatus.textContent = message;
 
-    const region =
-        document.getElementById("client-region").value;
+    formStatus.className =
+        "form-status " + type;
 
-    const message =
-        document.getElementById("client-message").value.trim();
+}
 
-    if (!name || !phone) {
-        alert("Укажите имя и телефон");
-        return;
-    }
 
-    const text =
-        "Здравствуйте! Хочу заказать работы по скважине.\n\n" +
-        "Имя: " + name + "\n" +
-        "Телефон: " + phone + "\n" +
-        "Район: " + region + "\n" +
-        "Комментарий: " + (message || "Нет");
+/* СБРОС КАПЧИ */
 
-    if (channel === "whatsapp") {
+function resetCaptcha() {
 
-        window.open(
-            "https://wa.me/79213212530?text=" +
-            encodeURIComponent(text),
-            "_blank"
+    try {
+
+        if (
+            window.smartCaptcha &&
+            typeof window.smartCaptcha.reset === "function"
+        ) {
+
+            window.smartCaptcha.reset();
+
+        }
+
+    } catch (error) {
+
+        console.warn(
+            "Не удалось сбросить SmartCaptcha"
         );
-
-    }
-
-    if (channel === "telegram") {
-
-        alert(
-            "Откроется Telegram. " +
-            "Скопируйте данные заявки из формы " +
-            "и отправьте их в чат."
-        );
-
-        window.open(
-            "https://t.me/VodaVDom47_Bot",
-            "_blank"
-        );
-
-    }
-
-    if (channel === "max") {
-
-        alert(
-            "Откроется MAX. " +
-            "Скопируйте данные заявки из формы " +
-            "и отправьте их в переписку."
-        );
-
-        window.open(
-            MAX_URL,
-            "_blank"
-        );
-
-    }
-
-    if (channel === "email") {
-
-        const subject =
-            "Заявка с сайта Вода в Дом";
-
-        window.location.href =
-            "mailto:89213212530@ya.ru" +
-            "?subject=" + encodeURIComponent(subject) +
-            "&body=" + encodeURIComponent(text);
 
     }
 
 }
+
+
+/* ОБРАБОТКА ОТПРАВКИ */
+
+requestForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+        if (!requestForm.reportValidity()) {
+            return;
+        }
+
+        const name =
+            document.getElementById(
+                "client-name"
+            ).value.trim();
+
+        const phone =
+            document.getElementById(
+                "client-phone"
+            ).value.trim();
+
+        const region =
+            document.getElementById(
+                "client-region"
+            ).value;
+
+        const comment =
+            document.getElementById(
+                "client-message"
+            ).value.trim();
+
+
+        /* ПРОВЕРКА ИМЕНИ */
+
+        if (name.length < 2) {
+
+            showStatus(
+                "Укажите ваше имя.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        /* ПРОВЕРКА ТЕЛЕФОНА */
+
+        if (!/^\+?[\d\s()\-]{10,25}$/.test(phone)) {
+
+            showStatus(
+                "Проверьте номер телефона.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        /* ПОЛУЧЕНИЕ ТОКЕНА КАПЧИ */
+
+        const captchaInput =
+            document.querySelector(
+                '#request-form input[name="smart-token"]'
+            );
+
+        const captchaToken =
+            captchaInput ? captchaInput.value : "";
+
+
+        if (!captchaToken) {
+
+            showStatus(
+                "Пройдите проверку «Я не робот».",
+                "error"
+            );
+
+            return;
+        }
+
+
+        /* ДАННЫЕ ЗАЯВКИ */
+
+        const application = {
+
+            name: name,
+
+            phone: phone,
+
+            region: region,
+
+            comment: comment,
+
+            smartCaptchaToken: captchaToken
+
+        };
+
+
+        /* БЛОКИРОВКА ПОВТОРНОГО НАЖАТИЯ */
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+            "Отправляем заявку...";
+
+        showStatus(
+            "Пожалуйста, подождите...",
+            "info"
+        );
+
+
+        try {
+
+            const controller =
+                new AbortController();
+
+            const timeout = setTimeout(
+                function() {
+                    controller.abort();
+                },
+                25000
+            );
+
+            let response;
+
+            try {
+
+                response = await fetch(
+                    APPLICATION_ENDPOINT,
+                    {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify(application),
+
+                        signal: controller.signal
+
+                    }
+                );
+
+            } finally {
+
+                clearTimeout(timeout);
+
+            }
+
+
+            /* ОБРАБОТКА ОТВЕТА */
+
+            let result;
+
+            try {
+
+                result = await response.json();
+
+            } catch (error) {
+
+                throw new Error(
+                    "Некорректный ответ сервера"
+                );
+
+            }
+
+
+            /* УСПЕШНАЯ ОТПРАВКА */
+
+            if (
+                response.ok &&
+                result.success === true
+            ) {
+
+                showStatus(
+                    "Спасибо! Ваша заявка успешно отправлена. " +
+                    "Мы скоро с вами свяжемся.",
+                    "success"
+                );
+
+                requestForm.reset();
+
+            } else {
+
+                showStatus(
+                    result.error ||
+                    "Не удалось отправить заявку. " +
+                    "Попробуйте ещё раз.",
+                    "error"
+                );
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Ошибка отправки заявки:",
+                error
+            );
+
+            showStatus(
+                "Не удалось отправить заявку. " +
+                "Проверьте соединение и попробуйте ещё раз. " +
+                "Если ошибка повторяется, позвоните нам.",
+                "error"
+            );
+
+        } finally {
+
+            submitButton.disabled = false;
+
+            submitButton.textContent =
+                "Отправить заявку";
+
+            resetCaptcha();
+
+        }
+
+    }
+);
 
 </script>
 
