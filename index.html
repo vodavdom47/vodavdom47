@@ -589,4 +589,269 @@
         <h2 class="section-title reveal">Наша <span>Техника</span></h2>
         <div class="tech-container reveal">
             <img src="urb2a2.jpg" alt="Буровая установка УРБ 2А2" class="tech-img" loading="lazy">
-            <div 
+            <div class="tech-text">
+                <h3>УРБ 2А2 на базе ЗИЛ</h3>
+                <p>Мы используем проверенную временем и надежную установку УРБ 2А2. Она позволяет эффективно бурить скважины в различных грунтах, обеспечивая высокую точность и качество работ.</p>
+                <p style="margin-top: 15px;">Собственный парк техники позволяет нам гарантировать соблюдение сроков и фиксированную цену.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- КАРТА -->
+    <section id="regions">
+        <h2 class="section-title reveal">Зоны <span>Обслуживания</span></h2>
+        <div id="service-map" class="reveal"></div>
+        <div class="map-legend reveal">
+            <div class="legend-item"><div class="dot" style="background: #DFBB73;"></div>Сланцы и район</div>
+            <div class="legend-item"><div class="dot" style="background: #3498DB;"></div>Кингисепп и район</div>
+            <div class="legend-item"><div class="dot" style="background: #45C78A;"></div>Гдов и район</div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+        <h2 class="section-title reveal">Частые <span>Вопросы</span></h2>
+        <div class="faq-container reveal">
+            <div class="faq-item">
+                <div class="faq-question">Сколько стоит бурение скважины? <span>+</span></div>
+                <div class="faq-answer">Стоимость бурения составляет ровно 5 500 ₽ за каждый погонный метр глубины.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">В каких районах вы работаете? <span>+</span></div>
+                <div class="faq-answer">Мы оказываем услуги в Сланцевском, Кингисеппском районах Ленинградской области и Гдовском районе Псковской области.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Какую технику вы используете? <span>+</span></div>
+                <div class="faq-answer">Наша основная установка — УРБ 2А2 на базе ЗИЛ, которая отлично подходит для данных регионов.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Можно ли заказать только обустройство? <span>+</span></div>
+                <div class="faq-answer">Да, мы выполняем работы по обустройству и ремонту скважин, даже если бурение проводилось другой компанией.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ФОРМА ЗАЯВКИ -->
+    <section id="request">
+        <h2 class="section-title reveal">Оставить <span>Заявку</span></h2>
+        <div class="form-container reveal">
+            <form id="request-form">
+                <div class="form-group">
+                    <label>Ваше имя</label>
+                    <input type="text" name="name" placeholder="Иван" required>
+                </div>
+                <div class="form-group">
+                    <label>Телефон</label>
+                    <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+                </div>
+                <div class="form-group">
+                    <label>Район</label>
+                    <select name="region" required>
+                        <option value="">Выберите район</option>
+                        <option value="Сланцевский район">Сланцевский район</option>
+                        <option value="Кингисеппский район">Кингисеппский район</option>
+                        <option value="Гдовский район">Гдовский район</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Комментарий</label>
+                    <textarea name="comment" rows="4" placeholder="Опишите вашу задачу..."></textarea>
+                </div>
+                
+                <div id="captcha-container" style="margin-bottom: 20px;"></div>
+                
+                <button type="submit" id="submit-btn" class="btn btn-gold">Отправить заявку</button>
+            </form>
+            <div id="form-message"></div>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section id="contacts">
+        <h2 class="section-title reveal">Наши <span>Контакты</span></h2>
+        <div class="contacts-grid reveal">
+            <div class="contact-item">
+                <p>Позвонить нам</p>
+                <a href="tel:+79213212530" onclick="trackGoal('phone_click')">+7 (921) 321-25-30</a>
+            </div>
+            <div class="contact-item">
+                <p>WhatsApp</p>
+                <a href="https://wa.me/79213212530" target="_blank" onclick="trackGoal('whatsapp_click')">Написать в WA</a>
+            </div>
+            <div class="contact-item">
+                <p>Telegram</p>
+                <a href="https://t.me/VodaVDom47_Bot" target="_blank" onclick="trackGoal('telegram_click')">Написать в TG</a>
+            </div>
+            <div class="contact-item">
+                <p>Мессенджер MAX</p>
+                <a href="https://max.ru/u/f9LHodD0cOJrDOn4ICu6rKGSbW3sCedNTyUztdKpnmMC8Uhp-ifj0za6uQw" target="_blank" onclick="trackGoal('max_click')">Связаться в MAX</a>
+            </div>
+            <div class="contact-item">
+                <p>Электронная почта</p>
+                <a href="mailto:89213212530@ya.ru">89213212530@ya.ru</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024-2025 Вода в Дом. Бурение, ремонт и обустройство скважин.
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
+
+    <script>
+        function trackGoal(goalName) {
+            if (typeof ym === 'function') {
+                ym(YM_ID, 'reachGoal', goalName);
+            }
+        }
+
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
+
+        const slider = document.getElementById('depth-slider');
+        const depthVal = document.getElementById('depth-val');
+        const totalPrice = document.getElementById('total-price');
+        let calcGoalSent = false;
+
+        function updateCalc() {
+            const depth = slider.value;
+            const price = depth * 5500;
+            depthVal.textContent = depth;
+            totalPrice.textContent = price.toLocaleString('ru-RU') + ' ₽';
+
+            if (!calcGoalSent) {
+                trackGoal('calculator_use');
+                calcGoalSent = true;
+            }
+        }
+        slider.addEventListener('input', updateCalc);
+        updateCalc();
+
+        ymaps.ready(initMap);
+        function initMap() {
+            var myMap = new ymaps.Map("service-map", {
+                center: [59.1, 28.3],
+                zoom: 8,
+                controls: ['zoomControl', 'fullscreenControl']
+            });
+
+            var zones = [
+                { center: [59.118, 28.092], radius: 22000, color: 'DFBB73', name: 'Сланцы' },
+                { center: [59.373, 28.613], radius: 27000, color: '3498DB', name: 'Кингисепп' },
+                { center: [58.742, 27.825], radius: 25000, color: '45C78A', name: 'Гдов' }
+            ];
+
+            zones.forEach(z => {
+                var circle = new ymaps.Circle([z.center], z.radius, {
+                    fillColor: '#' + z.color,
+                    strokeColor: '#' + z.color,
+                    fillOpacity: 0.4,
+                    strokeOpacity: 0.8,
+                    strokeWidth: 2
+                });
+                myMap.geoObjects.add(circle);
+                
+                var placemark = new ymaps.Placemark(z.center, {
+                    balloonContent: z.name
+                }, {
+                    preset: 'islands#goldDotIcon'
+                });
+                myMap.geoObjects.add(placemark);
+            });
+            
+            myMap.setBounds(myMap.geoObjects.getBounds(), {checkZoomRange: true, zoomMargin: 20});
+        }
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+                const icon = item.querySelector('span');
+                icon.textContent = item.classList.contains('active') ? '−' : '+';
+            });
+        });
+
+        window.onload = function() {
+            if (window.smartCaptcha) {
+                window.smartCaptcha.render('captcha-container', {
+                    sitekey: 'ysc1_YiyfulTHNJe3B8HhWH0iMYhbq7j6gmz7CWTEztM34b1c274f',
+                    callback: function(token) {
+                        console.log('Captcha solved');
+                    }
+                });
+            }
+        };
+
+        const form = document.getElementById('request-form');
+        const btn = document.getElementById('submit-btn');
+        const msg = document.getElementById('form-message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const token = document.querySelector('input[name="smart-token"]')?.value;
+            if (!token) {
+                alert('Пожалуйста, пройдите проверку капчей');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = 'Отправка...';
+            msg.style.display = 'none';
+
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                region: formData.get('region'),
+                comment: formData.get('comment'),
+                smartCaptchaToken: token
+            };
+
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 25000);
+
+            try {
+                const response = await fetch('https://functions.yandexcloud.net/d4equ8pd04sde7pq7fca', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                    signal: controller.signal
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    msg.textContent = 'Спасибо! Ваша заявка успешно отправлена. Мы скоро с вами свяжемся.';
+                    msg.style.color = 'var(--accent-gold)';
+                    form.reset();
+                    if (window.smartCaptcha) window.smartCaptcha.reset();
+                    trackGoal('request_submit');
+                } else {
+                    throw new Error(result.message || 'Ошибка при отправке');
+                }
+            } catch (error) {
+                msg.textContent = 'Произошла ошибка при отправке. Пожалуйста, попробуйте позже или позвоните нам.';
+                msg.style.color = '#ff6b6b';
+            } finally {
+                clearTimeout(timeoutId);
+                btn.disabled = false;
+                btn.textContent = 'Отправить заявку';
+                msg.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
